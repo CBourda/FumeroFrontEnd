@@ -1,4 +1,5 @@
 import './Hero.css'
+import fotoDottore from '../assets/foto-dottore.jpg'
 
 export default function Hero() {
     return (
@@ -34,7 +35,7 @@ export default function Hero() {
 
             <div className="hero__right">
                 <div className="hero__image-wrap">
-                    {/* Sostituire con: <img src="/foto-dottore.jpg" alt="Dott. Andrea Fumero" /> */}
+                    <img src={fotoDottore} alt="Dott. Andrea Fumero" />
                     <div className="hero__photo-placeholder">
                         <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
                             <circle cx="12" cy="8" r="4" />

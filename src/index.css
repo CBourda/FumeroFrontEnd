@@ -241,3 +241,10 @@ img {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* ── MOBILE GLOBAL ── */
+@media (max-width: 768px) {
+  .section-wrapper { padding: 4rem 1.5rem; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .form-row { grid-template-columns: 1fr; }
+}

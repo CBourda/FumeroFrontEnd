@@ -69,3 +69,8 @@
 .pub__all:hover {
   border-color: var(--gold);
 }
+
+@media (max-width: 768px) {
+  .pub__list { max-width: 100%; }
+  .pub__item { padding: 1.2rem; }
+}

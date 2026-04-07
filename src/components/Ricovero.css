@@ -87,3 +87,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .ricovero__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
