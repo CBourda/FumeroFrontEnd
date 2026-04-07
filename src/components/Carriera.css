@@ -1,0 +1,47 @@
+#carriera {
+  background: var(--navy-mid);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 1px solid rgba(201, 168, 76, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 700px;
+}
+
+.timeline__item {
+  position: relative;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -2.4rem;
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.timeline__anno {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.timeline__ruolo {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.timeline__luogo {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}

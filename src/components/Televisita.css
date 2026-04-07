@@ -1,0 +1,206 @@
+#televisita {
+  background: var(--navy-mid);
+}
+
+.televisita__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.televisita__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Data box */
+.televisita__data-box {
+  padding: 1.5rem;
+  background: var(--navy);
+  border-left: 2px solid var(--gold);
+}
+
+.televisita__data-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.televisita__data-value {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+  text-transform: capitalize;
+}
+
+.televisita__data-note {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Costo */
+.televisita__costo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  background: var(--navy);
+}
+
+.televisita__costo-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.televisita__costo-valore {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+/* IBAN */
+.iban-box {
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: var(--navy);
+}
+
+.iban-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.iban-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.iban-meta {
+  font-size: 0.68rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+.iban-value {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
+}
+
+.iban-causale {
+  font-size: 0.76rem;
+  color: var(--cream);
+}
+
+/* Flusso */
+.flusso {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.flusso__step {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.2rem 1.5rem;
+  background: var(--navy);
+  border-left: 2px solid rgba(201, 168, 76, 0.15);
+  border-top: 1px solid rgba(201, 168, 76, 0.06);
+}
+
+.flusso__step:first-child {
+  border-top: none;
+}
+
+.flusso__step--active {
+  border-left-color: var(--gold);
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.flusso__num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--gold);
+  opacity: 0.35;
+  min-width: 1.5rem;
+  line-height: 1;
+}
+
+.flusso__title {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 0.2rem;
+}
+
+.flusso__desc {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Stati form */
+.televisita__chiusa,
+.televisita__successo {
+  padding: 3rem;
+  background: var(--navy);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.televisita__successo-icon {
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+.televisita__successo h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--white);
+}
+
+.televisita__successo strong {
+  color: var(--cream);
+}
+
+.televisita__errore {
+  padding: 0.8rem 1rem;
+  background: rgba(200, 50, 50, 0.1);
+  border: 1px solid rgba(200, 50, 50, 0.3);
+  color: #f08080;
+  font-size: 0.78rem;
+}
+
+.televisita__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .televisita__layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

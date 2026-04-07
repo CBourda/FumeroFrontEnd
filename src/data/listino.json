@@ -1,0 +1,35 @@
+{
+  "voci": [
+    {
+      "id": 1,
+      "nome": "Prima visita cardiochirurgica",
+      "descrizione": "Visita specialistica con anamnesi completa e valutazione clinica",
+      "prezzo": null,
+      "prezzoDisplay": "da inserire"
+    },
+    {
+      "id": 2,
+      "nome": "Second opinion",
+      "descrizione": "Revisione di diagnosi o indicazione chirurgica già formulata",
+      "prezzo": null,
+      "prezzoDisplay": "da inserire"
+    },
+    {
+      "id": 3,
+      "nome": "Consulto pre-operatorio",
+      "descrizione": "Valutazione specialistica in preparazione all'intervento",
+      "prezzo": null,
+      "prezzoDisplay": "da inserire"
+    },
+    {
+      "id": 4,
+      "nome": "Visita di controllo",
+      "descrizione": "Controllo post-operatorio e follow-up clinico",
+      "prezzo": null,
+      "prezzoDisplay": "da inserire"
+    }
+  ],
+  "notaFollowup": "Sei già paziente del Dott. Fumero? Le visite di follow-up hanno tariffe riservate.",
+  "ctaFollowup": "Contattaci per informazioni",
+  "linkFollowup": "#contatti"
+}

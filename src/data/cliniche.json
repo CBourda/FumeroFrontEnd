@@ -1,0 +1,42 @@
+[
+  {
+    "id": "milano",
+    "citta": "Milano",
+    "nome": "Centro Medico Visconti di Modrone",
+    "indirizzo": "Via Visconti di Modrone 7, 20122 Milano",
+    "telefono": "+39 02 783241",
+    "email": null,
+    "sitoWeb": "https://www.cmvm.com",
+    "schedaMedico": "https://www.cmvm.com/portfolio/andrea-davide-fumero-cardiochirurgia/"
+  },
+  {
+    "id": "rozzano",
+    "citta": "Rozzano (MI)",
+    "nome": "Humanitas Research Hospital",
+    "indirizzo": "Via A. Manzoni 56, 20089 Rozzano (MI)",
+    "telefono": "+39 02 82248224",
+    "email": null,
+    "sitoWeb": "https://www.humanitas.it",
+    "schedaMedico": "https://www.humanitas.it/medici/andrea-davide-fumero/"
+  },
+  {
+    "id": "vigevano",
+    "citta": "Vigevano (PV)",
+    "nome": "Emmebi Servizi Medici",
+    "indirizzo": "Via Mascagni 41, 27029 Vigevano (PV)",
+    "telefono": "+39 0381 980 883",
+    "email": "info@emmebiservizi.it",
+    "sitoWeb": "https://emmebivigevano.com",
+    "schedaMedico": "https://emmebivigevano.com/dr-andrea-fumero/"
+  },
+  {
+    "id": "cagliari",
+    "citta": "Cagliari",
+    "nome": "Centro Medico Genneruxi",
+    "indirizzo": "Via Costantinopoli 42, 09129 Cagliari",
+    "telefono": "+39 070 491244",
+    "email": null,
+    "sitoWeb": "https://www.centromedicogenneruxi.it",
+    "schedaMedico": "https://www.centromedicogenneruxi.it/dr.-fumero-andrea-davide-247.html"
+  }
+]

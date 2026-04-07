@@ -1,0 +1,70 @@
+#cliniche {
+  background: var(--navy);
+}
+
+.cliniche__intro {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 620px;
+  margin-bottom: 2.5rem;
+}
+
+.cliniche__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5px;
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.clinica__card {
+  background: var(--navy-mid);
+  padding: 2.5rem;
+}
+
+.clinica__city {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.clinica__name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.clinica__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 1.4rem;
+}
+
+.clinica__info a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.clinica__info a:hover {
+  color: var(--gold);
+}
+
+.clinica__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .cliniche__grid {
+    grid-template-columns: 1fr;
+  }
+}

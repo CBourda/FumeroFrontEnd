@@ -1,0 +1,89 @@
+#ricovero {
+  background: var(--navy);
+}
+
+.ricovero__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.ricovero__testo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: var(--text-light);
+}
+
+.ricovero__box {
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  background: var(--navy-mid);
+}
+
+.ricovero__box--gold {
+  border-color: rgba(201, 168, 76, 0.35);
+}
+
+.ricovero__box-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.ricovero__box--gold .ricovero__box-title {
+  color: var(--gold-light);
+}
+
+.ricovero__box-desc {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.ricovero__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.ricovero__step {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.4rem;
+  background: var(--navy-mid);
+}
+
+.ricovero__step-num {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  min-width: 2rem;
+}
+
+.ricovero__step-title {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+
+.ricovero__step-desc {
+  font-size: 0.73rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .ricovero__layout {
+    grid-template-columns: 1fr;
+  }
+}
