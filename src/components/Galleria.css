@@ -37,7 +37,9 @@
 
 @media (max-width: 768px) {
   .galleria__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
-  .galleria__item { height: 45vw; }
+  .galleria__item {
+    height: 70vw;
+  }
 }

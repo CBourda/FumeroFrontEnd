@@ -7,47 +7,54 @@
   margin-bottom: 2rem;
 }
 
-/* Tab bar */
-.cliniche__tabs {
+/* ── TAB BUTTONS ── */
+.cliniche__tab-buttons {
   display: flex;
   gap: 0;
   border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-  margin-bottom: 0;
-  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  overflow-x: auto;
 }
 
-.cliniche__tab {
-  padding: 0.9rem 1.8rem;
-  background: transparent;
+.cliniche__tab-btn {
+  background: none;
   border: none;
   border-bottom: 2px solid transparent;
   color: var(--text-light);
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
   transition: all 0.3s;
+  white-space: nowrap;
   margin-bottom: -1px;
 }
 
-.cliniche__tab:hover {
-  color: var(--gold);
-}
-
-.cliniche__tab--active {
+.cliniche__tab-btn.active {
   color: var(--gold);
   border-bottom-color: var(--gold);
-  background: rgba(201, 168, 76, 0.04);
 }
 
-/* Card contenuto */
-.clinica__card {
+.cliniche__tab-btn:hover {
+  color: var(--gold);
+}
+
+/* ── TAB CONTENT ── */
+.cliniche__tab-content {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2rem;
   background: var(--navy-mid);
   padding: 2.5rem;
-  border: 1px solid rgba(201, 168, 76, 0.1);
-  border-top: none;
-  animation: fadeIn 0.25s ease both;
+  min-height: 320px;
+}
+
+.cliniche__tab-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .clinica__city {
@@ -55,24 +62,23 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.6rem;
 }
 
 .clinica__name {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--white);
-  margin-bottom: 1.2rem;
+  line-height: 1.2;
 }
 
 .clinica__info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.82rem;
+  gap: 0.4rem;
+  font-size: 0.75rem;
   color: var(--text-light);
   line-height: 1.5;
-  margin-bottom: 1.8rem;
+  margin: 0.4rem 0;
 }
 
 .clinica__info a {
@@ -87,16 +93,28 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
+/* ── MAPPA ── */
+.cliniche__map {
+  height: 320px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+/* ── MOBILE ── */
 @media (max-width: 768px) {
-  .cliniche__tab {
-    padding: 0.8rem 1.2rem;
-    font-size: 0.65rem;
-    flex: 1;
-    text-align: center;
+  .cliniche__tab-content {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
-  .clinica__card {
-    padding: 1.8rem 1.2rem;
+  .cliniche__map {
+    height: 220px;
+  }
+  .cliniche__tab-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.62rem;
   }
 }

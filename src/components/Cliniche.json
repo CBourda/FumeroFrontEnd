@@ -1,0 +1,45 @@
+[
+  {
+    "id": "milano",
+    "citta": "Milano",
+    "nome": "Centro Medico Visconti di Modrone",
+    "indirizzo": "Via Visconti di Modrone 7, 20122 Milano",
+    "telefono": "+39 02 783241",
+    "email": null,
+    "sitoWeb": "https://www.cmvm.com",
+    "schedaMedico": "https://www.cmvm.com/portfolio/andrea-davide-fumero-cardiochirurgia/",
+    "mapsEmbed": "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d22304.786039731658!2d9.053467949999998!3d45.6689278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4786c6a4613ca69b%3A0x4fceb029f3adfa30!2sCentro%20Medico%20Visconti%20di%20Modrone%2C%20Via%20Visconti%20di%20Modrone%20Uberto%2C%20Via%20Uberto%20Visconti%20di%20Modrone%2C%207%2F7%2C%2020122%20Milano%20MI!3m2!1d45.4639664!2d9.1993025!5e0!3m2!1sit!2sit!4v1775567815822!5m2!1sit!2sit"
+  },
+  {
+    "id": "rozzano",
+    "citta": "Rozzano (MI)",
+    "nome": "Humanitas Research Hospital",
+    "indirizzo": "Via A. Manzoni 56, 20089 Rozzano (MI)",
+    "telefono": "+39 02 82248224",
+    "email": null,
+    "sitoWeb": "https://www.humanitas.it",
+    "schedaMedico": "https://www.humanitas.it/medici/andrea-davide-fumero/",
+    "mapsEmbed": "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d44609.572079463316!2d9.0534679!3d45.6689278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4786db44e2a7c1b3%3A0xc08733a87422fbe0!2sIRCCS%20Istituto%20Clinico%20Humanitas%20Research%20Hospital%2C%20Via%20Alessandro%20Manzoni%2C%2056%2C%2020089%20Rozzano%20MI!3m2!1d45.374141699999996!2d9.165726399999999!5e0!3m2!1sit!2sit!4v1775568034927!5m2!1sit!2sit"
+  },
+  {
+    "id": "vigevano",
+    "citta": "Vigevano (PV)",
+    "nome": "Emmebi Servizi Medici",
+    "indirizzo": "Via Mascagni 41, 27029 Vigevano (PV)",
+    "telefono": "+39 0381 980 883",
+    "email": "info@emmebiservizi.it",
+    "sitoWeb": "https://emmebivigevano.com",
+    "schedaMedico": "https://emmebivigevano.com/dr-andrea-fumero/",
+    "mapsEmbed": "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d22304.786039731658!2d9.0534679!3d45.6689278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x4786fccab0a9aee3%3A0xa7fa30b3c21abf1d!2sEMMEBI%20Servizi%20Medici%20s.c.%2C%20Via%20P.%20Mascagni%2C%2041%2C%2027029%20Vigevano%20PV!3m2!1d45.3069297!2d8.8591912!5e0!3m2!1sit!2sit!4v1775568068215!5m2!1sit!2sit"   },
+  {
+    "id": "cagliari",
+    "citta": "Cagliari",
+    "nome": "Centro Medico Genneruxi",
+    "indirizzo": "Via Costantinopoli 42, 09129 Cagliari",
+    "telefono": "+39 070 491244",
+    "email": null,
+    "sitoWeb": "https://www.centromedicogenneruxi.it",
+    "schedaMedico": "https://www.centromedicogenneruxi.it/dr.-fumero-andrea-davide-247.html",
+    "mapsEmbed": "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d22304.786039731658!2d9.05346795!3d45.6689278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x12e735f99e9e5d77%3A0xa3164daa3c179cc6!2sCentro%20Medico%20Genneruxi%2C%20Via%20Costantinopoli%2C%2042%2C%2009129%20Cagliari%20CA!3m2!1d39.2274019!2d9.134886!5e0!3m2!1sit!2sit!4v1775568095104!5m2!1sit!2sit" 
+  }
+]
