@@ -16,12 +16,29 @@ export default function Televisita() {
   const [loading, setLoading] = useState(false)
   const [errore, setErrore] = useState(null)
 
-  // Carica la data disponibile dal backend
+  // Carica la data disponibile dal backend, con fallback frontend
   useEffect(() => {
     fetch('/api/appointment/slot')
       .then(res => res.json())
       .then(data => setSlot(data))
-      .catch(() => setSlot({ aperta: false, data: 'Non disponibile' }))
+      .catch(() => {
+        // Fallback: calcola lato frontend se backend non disponibile
+        const ora = new Date()
+        const giorno = ora.getDay() // 0=dom, 2=mar
+        let giorniAlMartedi = (2 - giorno + 7) % 7
+        if (giorniAlMartedi === 0) giorniAlMartedi = 7
+        const martedi = new Date(ora)
+        martedi.setDate(ora.getDate() + giorniAlMartedi)
+        martedi.setHours(18, 0, 0, 0)
+        const domenica = new Date(martedi)
+        domenica.setDate(martedi.getDate() - 2)
+        domenica.setHours(23, 59, 59, 0)
+        const aperta = ora < domenica
+        const data = martedi.toLocaleDateString('it-IT', {
+          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        }) + ' alle 18:00'
+        setSlot({ aperta, data })
+      })
       .finally(() => setLoadingSlot(false))
   }, [])
 
