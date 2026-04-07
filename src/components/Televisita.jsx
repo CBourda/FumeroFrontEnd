@@ -1,34 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Televisita.css'
-
-// Calcola il prossimo martedì alle 18:00
-function getProssimoMartedi() {
-  const oggi = new Date()
-  const giorno = oggi.getDay() // 0=dom, 1=lun, ..., 2=mar
-  const domenica = new Date(oggi)
-
-  // Trova il prossimo martedì
-  let giorniAlMartedi = (2 - giorno + 7) % 7
-  if (giorniAlMartedi === 0) giorniAlMartedi = 7 // se oggi è martedì, prossimo martedì
-
-  const martedi = new Date(oggi)
-  martedi.setDate(oggi.getDate() + giorniAlMartedi)
-  martedi.setHours(18, 0, 0, 0)
-
-  // Stop prenotazioni domenica a mezzanotte (2 giorni prima del martedì)
-  domenica.setDate(martedi.getDate() - 2)
-  domenica.setHours(23, 59, 59, 0)
-
-  const prenotazioneChiusa = oggi > domenica
-
-  return { martedi, domenica, prenotazioneChiusa }
-}
-
-function formatData(date) {
-  return date.toLocaleDateString('it-IT', {
-    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-  })
-}
 
 const flusso = [
   { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati e il motivo del consulto.' },
@@ -38,11 +9,21 @@ const flusso = [
 ]
 
 export default function Televisita() {
-  const { martedi, domenica, prenotazioneChiusa } = getProssimoMartedi()
+  const [slot, setSlot] = useState(null)
+  const [loadingSlot, setLoadingSlot] = useState(true)
   const [form, setForm] = useState({ nome: '', email: '', telefono: '', motivo: '' })
   const [inviato, setInviato] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errore, setErrore] = useState(null)
+
+  // Carica la data disponibile dal backend
+  useEffect(() => {
+    fetch('/api/appointment/slot')
+      .then(res => res.json())
+      .then(data => setSlot(data))
+      .catch(() => setSlot({ aperta: false, data: 'Non disponibile' }))
+      .finally(() => setLoadingSlot(false))
+  }, [])
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -54,16 +35,15 @@ export default function Televisita() {
       const res = await fetch('/api/appointment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          clinica: 'Televisita',
-          messaggio: form.motivo,
-          dataTelevista: martedi.toISOString(),
-        }),
+        body: JSON.stringify({ ...form, clinica: 'Televisita' }),
       })
-      if (!res.ok) throw new Error('Errore nella richiesta')
+      const data = await res.json()
+      if (!res.ok || data.status === 'closed') {
+        setErrore(data.message || 'Errore nella richiesta. Riprova.')
+        return
+      }
       setInviato(true)
-    } catch (err) {
+    } catch {
       setErrore('Si è verificato un errore. Riprova o contattaci direttamente.')
     } finally {
       setLoading(false)
@@ -80,32 +60,44 @@ export default function Televisita() {
 
         {/* Info sinistra */}
         <div className="televisita__info">
+
+          {/* Data prossima disponibilità */}
           <div className="televisita__data-box">
             <div className="televisita__data-label">Prossima disponibilità</div>
-            <div className="televisita__data-value">{formatData(martedi)} · ore 18:00</div>
-            <div className="televisita__data-note">
-              Le prenotazioni chiudono domenica {formatData(domenica).split(' ').slice(1).join(' ')} a mezzanotte
-            </div>
+            {loadingSlot ? (
+              <div className="televisita__data-value">Caricamento...</div>
+            ) : (
+              <>
+                <div className="televisita__data-value">{slot?.data}</div>
+                {!slot?.aperta && (
+                  <div className="televisita__data-closed">
+                    ⚠ Prenotazioni chiuse — riaprono martedì sera
+                  </div>
+                )}
+              </>
+            )}
           </div>
 
+          {/* Costo */}
           <div className="televisita__costo">
             <span className="televisita__costo-label">Costo televisita</span>
             <span className="televisita__costo-valore">€ 200</span>
           </div>
 
+          {/* IBAN */}
           <div className="iban-box">
             <div className="iban-label">Estremi per il pagamento</div>
             <div className="iban-row">
               <span className="iban-meta">Intestato a</span>
               <span className="iban-value">Dott. Andrea Davide Fumero</span>
               <span className="iban-meta">IBAN</span>
-              {/* IBAN reale da inserire */}
               <span className="iban-value">IT00 X000 0000 0000 0000 0000 000</span>
               <span className="iban-meta">Causale</span>
               <span className="iban-causale">Televisita — [Nome Cognome] — [Data]</span>
             </div>
           </div>
 
+          {/* Flusso */}
           <div className="flusso">
             {flusso.map((f, i) => (
               <div key={i} className={`flusso__step ${i === 0 ? 'flusso__step--active' : ''}`}>
@@ -121,17 +113,17 @@ export default function Televisita() {
 
         {/* Form destra */}
         <div className="televisita__form-wrap">
-          {prenotazioneChiusa ? (
+          {!slot?.aperta && !loadingSlot ? (
             <div className="televisita__chiusa">
               <p>Le prenotazioni per la televisita di martedì sono chiuse.</p>
-              <p>Le prenotazioni per il prossimo martedì apriranno martedì sera.</p>
+              <p>Riaprono martedì sera dopo le 18:00.</p>
             </div>
           ) : inviato ? (
             <div className="televisita__successo">
               <div className="televisita__successo-icon">✓</div>
               <h3>Richiesta inviata</h3>
               <p>Riceverà a breve una email con gli estremi per il bonifico.</p>
-              <p>La televisita è prevista per <strong>{formatData(martedi)} alle 18:00</strong>.</p>
+              <p>La televisita è prevista per <strong>{slot?.data}</strong>.</p>
               <p>Il Dott. Fumero confermerà l'appuntamento a pagamento verificato.</p>
             </div>
           ) : (
@@ -171,7 +163,6 @@ export default function Televisita() {
             </form>
           )}
         </div>
-
       </div>
     </section>
   )
