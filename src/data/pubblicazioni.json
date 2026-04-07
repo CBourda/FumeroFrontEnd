@@ -1,35 +1,107 @@
-{
-  "voci": [
-    {
-      "id": 1,
-      "nome": "Prima visita cardiochirurgica",
-      "descrizione": "Visita specialistica con anamnesi completa e valutazione clinica",
-      "prezzo": null,
-      "prezzoDisplay": "da inserire"
-    },
-    {
-      "id": 2,
-      "nome": "Second opinion",
-      "descrizione": "Revisione di diagnosi o indicazione chirurgica già formulata",
-      "prezzo": null,
-      "prezzoDisplay": "da inserire"
-    },
-    {
-      "id": 3,
-      "nome": "Consulto pre-operatorio",
-      "descrizione": "Valutazione specialistica in preparazione all'intervento",
-      "prezzo": null,
-      "prezzoDisplay": "da inserire"
-    },
-    {
-      "id": 4,
-      "nome": "Visita di controllo",
-      "descrizione": "Controllo post-operatorio e follow-up clinico",
-      "prezzo": null,
-      "prezzoDisplay": "da inserire"
-    }
-  ],
-  "notaFollowup": "Sei già paziente del Dott. Fumero? Le visite di follow-up hanno tariffe riservate.",
-  "ctaFollowup": "Contattaci per informazioni",
-  "linkFollowup": "#contatti"
-}
+[
+  {
+    "id": 1,
+    "anno": 2026,
+    "rivista": "Eur Heart J Case Rep",
+    "titolo": "When time flies by: very long-term complication of percutaneous occlusion of a large atrial septal defect — a case report",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/41798605/"
+  },
+  {
+    "id": 2,
+    "anno": 2025,
+    "rivista": "JACC Cardiovasc Interv",
+    "titolo": "Pacemaker Lead Repositioning to Facilitate Transcatheter Tricuspid Valve Replacement With a Novel Prosthesis",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/41224396/"
+  },
+  {
+    "id": 3,
+    "anno": 2025,
+    "rivista": "JACC Cardiovasc Interv",
+    "titolo": "Electrosurgical Laceration and Stabilization of a Failed Mitral Edge-to-Edge Device Before Transcatheter Mitral Valve Replacement",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/40750161/"
+  },
+  {
+    "id": 4,
+    "anno": 2024,
+    "rivista": "JACC Cardiovasc Interv",
+    "titolo": "6 Months' Follow-Up of the First-in-Man Implantation of a Novel Tricuspid Flow Optimizer",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/38639687/"
+  },
+  {
+    "id": 5,
+    "anno": 2024,
+    "rivista": "JACC Cardiovasc Interv",
+    "titolo": "Transapical Mitral Valve Replacement: 1-Year Results of the Real-World Tendyne European Experience Registry (TENDER)",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/38385922/"
+  },
+  {
+    "id": 6,
+    "anno": 2024,
+    "rivista": "Med Sci (Basel)",
+    "titolo": "Survival and Durability of Minimally Invasive Mitral Valve Repair: Insights from Different Repair Techniques",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/39311159/"
+  },
+  {
+    "id": 7,
+    "anno": 2023,
+    "rivista": "JACC Cardiovasc Interv",
+    "titolo": "A Fully Percutaneous Transeptal Transcatheter Mitral Valve Replacement With a Novel Device",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/37191607/"
+  },
+  {
+    "id": 8,
+    "anno": 2023,
+    "rivista": "J Clin Med",
+    "titolo": "Surgical Challenges in Infective Endocarditis: State of the Art",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/37762834/"
+  },
+  {
+    "id": 9,
+    "anno": 2022,
+    "rivista": "Eur J Heart Fail",
+    "titolo": "Transapical mitral valve implantation for treatment of symptomatic mitral valve disease: a real-world multicentre experience (TENDER Investigators)",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/35064722/"
+  },
+  {
+    "id": 10,
+    "anno": 2020,
+    "rivista": "Artif Organs",
+    "titolo": "Single-center experience with partial support device in destination therapy for end-stage heart failure",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/32324900/"
+  },
+  {
+    "id": 11,
+    "anno": 2019,
+    "rivista": "Circulation",
+    "titolo": "Single-Cell Sequencing of Mouse Heart Immune Infiltrate in Pressure Overload-Driven Heart Failure Reveals Extent of Immune Activation",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/31661975/"
+  },
+  {
+    "id": 12,
+    "anno": 2017,
+    "rivista": "Nature Communications",
+    "titolo": "T cell costimulation blockade blunts pressure overload-induced heart failure",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/28262700/"
+  },
+  {
+    "id": 13,
+    "anno": 2016,
+    "rivista": "Am J Cardiol",
+    "titolo": "Long-Term Preservation of Left Ventricular Systolic Function in Patients With Refractory Angina Pectoris and Inducible Myocardial Ischemia on Optimal Medical Therapy",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/27055755/"
+  },
+  {
+    "id": 14,
+    "anno": 2015,
+    "rivista": "JACC Cardiovasc Interv",
+    "titolo": "Percutaneous treatment of a giant right coronary artery aneurysm",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/25819183/"
+  },
+  {
+    "id": 15,
+    "anno": 2011,
+    "rivista": "G Ital Cardiol",
+    "titolo": "Spinal cord stimulation for refractory chronic angina pectoris: 100 patients treated in our 12-year experience",
+    "pubmed": "https://pubmed.ncbi.nlm.nih.gov/"
+  }
+]
