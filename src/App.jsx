@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Hero2 from './components/Hero2'
 import Specializzazioni from './components/Specializzazioni'
 import Galleria from './components/Galleria'
 import Ricovero from './components/Ricovero'
@@ -16,6 +17,7 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <Hero2 />
           <Specializzazioni />
           <Galleria />
           <Ricovero />
