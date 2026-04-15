@@ -8,7 +8,7 @@ export default function Footer() {
         <span>Cardiochirurgo · Humanitas Research Hospital</span>
       </div>
       <div className="footer__copy">
-        © {new Date().getFullYear()} — P.IVA da inserire —{' '}
+        © {new Date().getFullYear()} — P.IVA 09347700966 —{' '}
         <a href="#privacy">Privacy Policy</a>
       </div>
     </footer>

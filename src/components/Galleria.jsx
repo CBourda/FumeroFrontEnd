@@ -1,10 +1,10 @@
-import fotoOp1 from '../assets/valvola-con-anello-protesico.jpg'
-import fotoOp2 from '../assets/valvola-mitrale-corde-tendinee.jpg'
+import fotoOp1 from '../assets/valvola-mitrale-corde-tendinee.jpg'
+import fotoOp2 from '../assets/valvola-con-anello-protesico.jpg'
 import './Galleria.css'
 
 const foto = [
-  { src: fotoOp1, alt: 'Chirurgia valvolare — anello protesico' },
-  { src: fotoOp2, alt: 'Chirurgia valvola mitrale' },
+  { src: fotoOp1, alt: 'Intervento mininvasivo: Plastica valvolare mitralica in minitoracotomia' },
+  { src: fotoOp2, alt: 'Intervento mininvasivo: Plastica valvolare mitralica in minitoracotomia' },
 ]
 
 export default function Galleria() {
@@ -21,8 +21,7 @@ export default function Galleria() {
         ))}
       </div>
       <p className="galleria__nota">
-        Immagini intraoperatorie di chirurgia valvolare mininvasiva eseguite
-        presso centri di eccellenza cardiochirurgica.
+        Intervento mininvasivo: Plastica valvolare mitralica in minitoracotomia
       </p>
     </section>
   )
