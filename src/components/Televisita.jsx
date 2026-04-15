@@ -108,7 +108,7 @@ export default function Televisita() {
               <span className="iban-meta">Intestato a</span>
               <span className="iban-value">Dott. Andrea Davide Fumero</span>
               <span className="iban-meta">IBAN</span>
-              <span className="iban-value">IT00 X000 0000 0000 0000 0000 000</span>
+              <span className="iban-value">IT54D0358901600010570777717</span>
               <span className="iban-meta">Causale</span>
               <span className="iban-causale">Televisita — [Nome Cognome] — [Data]</span>
             </div>
