@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './Televisita.css'
 
 const flusso = [
-  { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati e il motivo del consulto.' },
+  { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati e la data preferita.' },
   { num: '2', titolo: 'Ricevi gli estremi di pagamento', desc: 'Ti arriva una email con IBAN, causale e importo (€200).' },
   { num: '3', titolo: 'Effettua il bonifico', desc: 'Esegui il pagamento e invia la ricevuta via email.' },
   { num: '4', titolo: 'Conferma e link Google Meet', desc: 'Il Dott. Fumero conferma e ti invia il link per il collegamento.' },
@@ -11,20 +11,18 @@ const flusso = [
 export default function Televisita() {
   const [slot, setSlot] = useState(null)
   const [loadingSlot, setLoadingSlot] = useState(true)
-  const [form, setForm] = useState({ nome: '', email: '', telefono: '', motivo: '' })
+  const [form, setForm] = useState({ nome: '', email: '', telefono: '' })
   const [inviato, setInviato] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errore, setErrore] = useState(null)
 
-  // Carica la data disponibile dal backend, con fallback frontend
   useEffect(() => {
     fetch('/api/appointment/slot')
       .then(res => res.json())
       .then(data => setSlot(data))
       .catch(() => {
-        // Fallback: calcola lato frontend se backend non disponibile
         const ora = new Date()
-        const giorno = ora.getDay() // 0=dom, 2=mar
+        const giorno = ora.getDay()
         let giorniAlMartedi = (2 - giorno + 7) % 7
         if (giorniAlMartedi === 0) giorniAlMartedi = 7
         const martedi = new Date(ora)
@@ -52,7 +50,7 @@ export default function Televisita() {
       const res = await fetch('/api/appointment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, clinica: 'Televisita' }),
+        body: JSON.stringify({ ...form, clinica: 'Televisita', motivo: 'Richiesta televisita' }),
       })
       const data = await res.json()
       if (!res.ok || data.status === 'closed') {
@@ -77,8 +75,6 @@ export default function Televisita() {
 
         {/* Info sinistra */}
         <div className="televisita__info">
-
-          {/* Data prossima disponibilità */}
           <div className="televisita__data-box">
             <div className="televisita__data-label">Prossima disponibilità</div>
             {loadingSlot ? (
@@ -95,26 +91,11 @@ export default function Televisita() {
             )}
           </div>
 
-          {/* Costo */}
           <div className="televisita__costo">
             <span className="televisita__costo-label">Costo televisita</span>
             <span className="televisita__costo-valore">€ 200</span>
           </div>
 
-          {/* IBAN */}
-          <div className="iban-box">
-            <div className="iban-label">Estremi per il pagamento</div>
-            <div className="iban-row">
-              <span className="iban-meta">Intestato a</span>
-              <span className="iban-value">Dott. Andrea Davide Fumero</span>
-              <span className="iban-meta">IBAN</span>
-              <span className="iban-value">IT54D0358901600010570777717</span>
-              <span className="iban-meta">Causale</span>
-              <span className="iban-causale">Televisita — [Nome Cognome] — [Data]</span>
-            </div>
-          </div>
-
-          {/* Flusso */}
           <div className="flusso">
             {flusso.map((f, i) => (
               <div key={i} className={`flusso__step ${i === 0 ? 'flusso__step--active' : ''}`}>
@@ -128,7 +109,7 @@ export default function Televisita() {
           </div>
         </div>
 
-        {/* Form destra */}
+        {/* Form / Successo */}
         <div className="televisita__form-wrap">
           {!slot?.aperta && !loadingSlot ? (
             <div className="televisita__chiusa">
@@ -141,7 +122,23 @@ export default function Televisita() {
               <h3>Richiesta inviata</h3>
               <p>Riceverà a breve una email con gli estremi per il bonifico.</p>
               <p>La televisita è prevista per <strong>{slot?.data}</strong>.</p>
-              <p>Il Dott. Fumero confermerà l'appuntamento a pagamento verificato.</p>
+              <div className="televisita__iban-post">
+                <div className="iban-label">Estremi per il pagamento</div>
+                <div className="iban-row">
+                  <span className="iban-meta">Intestato a</span>
+                  <span className="iban-value">Dott. Andrea Davide Fumero</span>
+                  <span className="iban-meta">IBAN</span>
+                  <span className="iban-value">IT54D0358901600010570777717</span>
+                  <span className="iban-meta">Importo</span>
+                  <span className="iban-value">€ 200,00</span>
+                  <span className="iban-meta">Causale</span>
+                  <span className="iban-causale">Televisita — [Nome Cognome] — [Data]</span>
+                </div>
+              </div>
+              <p className="televisita__successo-nota">
+                Dopo il pagamento invii la ricevuta via email. Il Dott. Fumero
+                confermerà l'appuntamento e le invierà il link Google Meet.
+              </p>
             </div>
           ) : (
             <form className="televisita__form" onSubmit={handleSubmit}>
@@ -159,20 +156,10 @@ export default function Televisita() {
                 <label>Telefono *</label>
                 <input name="telefono" type="tel" placeholder="+39 333 123 4567" required value={form.telefono} onChange={handleChange} />
               </div>
-              <div className="form-group">
-                <label>Motivo del consulto *</label>
-                <textarea
-                  name="motivo"
-                  placeholder="Descriva brevemente il motivo della televisita. Potrà inviare referti e immagini via email dopo la conferma."
-                  required
-                  value={form.motivo}
-                  onChange={handleChange}
-                />
-              </div>
               {errore && <div className="televisita__errore">{errore}</div>}
               <div className="form-note">
-                Dopo l'invio riceverà una email con gli estremi per il bonifico (€200).
-                La televisita verrà confermata dal Dott. Fumero a pagamento verificato.
+                La televisita si svolge ogni martedì alle 18:00 via Google Meet.
+                Costo: €200. Le istruzioni per il pagamento arriveranno via email.
               </div>
               <button type="submit" className="btn-submit" disabled={loading}>
                 {loading ? 'Invio in corso...' : 'Richiedi televisita →'}

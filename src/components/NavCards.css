@@ -1,0 +1,73 @@
+.navcards {
+  background: var(--navy-mid);
+  padding: 4rem 6rem;
+}
+
+.navcards__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5px;
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.navcards__card {
+  background: var(--navy);
+  padding: 2rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background 0.3s;
+  position: relative;
+  cursor: pointer;
+}
+
+.navcards__card:hover {
+  background: var(--navy-light);
+}
+
+.navcards__icon {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  color: var(--gold);
+}
+
+.navcards__titolo {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+.navcards__desc {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  flex: 1;
+}
+
+.navcards__arrow {
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-top: 0.5rem;
+}
+
+.navcards__card:hover .navcards__arrow {
+  opacity: 1;
+}
+
+/* Mobile — 2 colonne */
+@media (max-width: 900px) {
+  .navcards {
+    padding: 3rem 1.5rem;
+  }
+  .navcards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* L'ultima card da sola va a larghezza piena */
+  .navcards__card:last-child {
+    grid-column: span 2;
+  }
+}

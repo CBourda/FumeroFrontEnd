@@ -204,3 +204,17 @@
     gap: 3rem;
   }
 }
+
+/* IBAN mostrato dopo invio */
+.televisita__iban-post {
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  background: rgba(201, 168, 76, 0.04);
+  margin: 0.5rem 0;
+}
+
+.televisita__successo-nota {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
