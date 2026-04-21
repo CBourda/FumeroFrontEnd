@@ -73,8 +73,22 @@ L'intervento eseguito in anestesia generale, in sternotomia, fermando il cuore e
 A fine intervento: 1-2 giorni in terapia intensiva, 5-6 giorni in reparto, circa 14 giorni in riabilitazione.`,
   },
   {
-    id: 'coronarica',
+    id: 'fibrillazione',
     icon: '∿',
+    nome: 'Fibrillazione atriale',
+    desc: 'Trattamento chirurgico della fibrillazione atriale con ablazione con radiofrequenza bipolare.',
+    label: 'Ablazione chirurgica',
+    testo: `La fibrillazione atriale è una alterazione del ritmo del cuore che può insorgere per diversi motivi. Questa alterazione del ritmo cardiaco può determinare una progressiva dilatazione del cuore che contribuisce al peggioramento della stessa in termini di durata dell'aritmia ed in termini di frequenza cardiaca. La fibrillazione atriale può essere parossistica, persistente e cronica.
+
+Questa aritmia può determinare una sensazione di mancanza di fiato (dispnea), affaticamento (astenia) e l'incapacità a compiere sforzi fisici. Una delle complicanze più temibili è la formazione di trombi nell'atrio sinistro che può determinare in caso di embolia una ischemia cerebrale con conseguenze neurologiche anche gravi quali l'ictus.
+
+Per questo motivo se persiste un problema di fibrillazione atriale dopo tentativi inefficaci di recuperare un ritmo sinusale mediante terapia medica, cardioversione elettrica o ablazione transcatetere, è possibile eseguire una ablazione chirurgica della FA. Questo intervento può essere eseguito con due differenti modalità, ma sempre in anestesia generale: con un accesso minitoracotomico destro con la circolazione extracorporea a cuore fermo e cuore aperto, oppure con un accesso subxifoideo senza circolazione extracorporea a cuore battente.
+
+In entrambi i casi potrà essere eseguita anche la chiusura/esclusione dell'auricola sinistra mediante l'utilizzo di una Clip. L'intervento dura circa 3-4 ore. A fine intervento: 1-2 giorni in terapia intensiva, 5-6 giorni in reparto, circa 7 giorni in riabilitazione.`,
+  },
+  {
+    id: 'coronarica',
+    icon: '⊗',
     nome: 'Malattia coronarica',
     desc: 'Bypass aortocoronarico per il trattamento delle stenosi coronariche.',
     label: 'Bypass aortocoronarico',
