@@ -1,136 +1,122 @@
-#specializzazioni {
-    background: var(--navy-mid);
-}
+#specializzazioni { background: var(--navy-mid); }
 
 .spec-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: rgba(201, 168, 76, 0.08);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(201, 168, 76, 0.08);
 }
 
 .spec-card {
-    background: var(--navy);
-    padding: 2.5rem 2rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    position: relative;
+  background: var(--navy);
+  padding: 2.5rem 2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
 }
 
-.spec-card:hover {
-    background: var(--navy-light);
-}
+.spec-card:hover { background: var(--navy-light); }
 
-.spec-icon {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    opacity: 0.7;
-}
+.spec-icon { font-size: 1.4rem; margin-bottom: 1rem; opacity: 0.7; }
 
 .spec-name {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.5rem;
 }
 
 .spec-desc {
-    font-size: 0.75rem;
-    line-height: 1.7;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
 }
 
 .spec-more {
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0;
-    transition: opacity 0.3s;
-    position: absolute;
-    bottom: 1.2rem;
-    right: 1.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.5rem;
 }
 
-.spec-card:hover .spec-more {
-    opacity: 1;
-}
+.spec-card:hover .spec-more { opacity: 1; }
 
-/* ── MODAL ── */
+/* MODAL */
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(5, 12, 25, 0.9);
-    z-index: 300;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    backdrop-filter: blur(8px);
-    animation: fadeIn 0.2s ease both;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 25, 0.9);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease both;
 }
 
 .modal {
-    background: var(--navy-mid);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    max-width: 640px;
-    width: 100%;
-    padding: 3rem;
-    position: relative;
-    animation: fadeUp 0.3s ease both;
+  background: var(--navy-mid);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  max-width: 640px;
+  width: 100%;
+  padding: 2.5rem;
+  position: relative;
+  animation: fadeUp 0.3s ease both;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-close {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--text-light);
-    font-size: 1.6rem;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.2s;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
 }
 
-.modal-close:hover {
-    color: var(--gold);
+.modal-close:hover { color: var(--gold); }
+.modal-label { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.modal-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2; }
+.modal-divider { width: 2rem; height: 1px; background: var(--gold); margin-bottom: 1.5rem; }
+.modal-body { font-size: 0.82rem; line-height: 1.9; color: var(--text-light); }
+
+@media (max-width: 768px) {
+  .spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .spec-card {
+    padding: 1.8rem 1.2rem;
+  }
 }
 
-.modal-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
+/* Modal specializzazioni — più largo per testi lunghi */
+.spec-modal {
+  max-width: 780px !important;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-.modal-title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+.spec-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.modal-divider {
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-    margin-bottom: 1.5rem;
-}
-
-.modal-body {
-    font-size: 0.82rem;
-    line-height: 1.9;
-    color: var(--text-light);
-}
-
-@media (max-width: 900px) {
-    .spec-grid {
-        grid-template-columns: 1fr;
-    }
+.spec-modal-body p {
+  font-size: 0.82rem;
+  line-height: 1.9;
+  color: var(--text-light);
 }
