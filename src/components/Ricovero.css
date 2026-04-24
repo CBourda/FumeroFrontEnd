@@ -5,7 +5,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5px;
   background: rgba(201, 168, 76, 0.08);
-  max-width: 900px;
 }
 
 .ricovero__card {
