@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import fotoMininvasiva from '../assets/foto-tavolo-operatorio.jpg' // in arrivo
+import fotoMininvasiva from '../assets/foto-mininvasiva.jpg'
 import fotoMitrale from '../assets/valvola-mitrale-corde-tendinee.jpg'
 import fotoAortica from '../assets/valvola-con-anello-protesico.jpg'
 import fotoTavi from '../assets/foto-emodinamica.jpg'
@@ -13,7 +13,7 @@ const specializzazioni = [
     nome: 'Chirurgia mininvasiva',
     desc: 'Accessi chirurgici di piccole dimensioni per ridurre il trauma e accelerare il recupero.',
     label: 'Minitoracotomia e ministernotomia',
-    foto: null, // in arrivo
+    foto: fotoMininvasiva,
     testo: `Gli accessi normalmente utilizzati nella chirurgia mininvasiva sono la "ministernotomia" e la "minitoracotomia destra". Questi accessi chirurgici di piccole dimensioni (circa 8-10 cm) determinano un minor trauma sulla parete toracica (cute, sottocute, sterno e muscoli), consentendo la possibilità di eseguire il medesimo intervento che verrebbe eseguito in sternotomia mediana.
 
 La ministernotomia viene utilizzata per gli interventi sulla valvola aortica, mentre la minitoracotomia viene utilizzata per gli interventi sulla valvola mitrale, tricuspide, per il trattamento della FA, chiusura dei difetti interatriali e asportazione di mixomi. Gli interventi di chirurgia mininvasiva vengono comunque eseguiti con l'ausilio della circolazione extracorporea e fermando il cuore. Sono quindi dei veri e propri interventi chirurgici condotti in anestesia generale e che necessitano della terapia intensiva nel postoperatorio.
