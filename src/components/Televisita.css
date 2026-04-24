@@ -218,3 +218,17 @@
   color: var(--text-light);
   line-height: 1.7;
 }
+
+.televisita__form-info {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  background: rgba(201, 168, 76, 0.03);
+  margin-bottom: 0.5rem;
+}
+
+.televisita__form-info strong {
+  color: var(--cream);
+}

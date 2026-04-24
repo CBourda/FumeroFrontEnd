@@ -1,27 +1,14 @@
 import { useState } from 'react'
 import './Ricovero.css'
 
+const HUMANITAS = 'IRCCS Humanitas Research Hospital, Via Alessandro Manzoni 56, 20089 Rozzano (MI)'
+
 const sezioni = [
-  {
-    id: 'visita',
-    titolo: 'Visita ambulatoriale',
-    icon: '◎',
-    intro: 'Prima visita, second opinion o visita di controllo presso una delle strutture convenzionate.',
-    testo: `Può prenotare una prima visita preoperatoria, second opinion o visita di controllo presso una delle strutture dove il dott. Fumero svolge attività ambulatoriale (Centro Medico Visconti di Modrone - Milano, Humanitas - Rozzano, Centro Medico Genneruxi - Cagliari, Poliambulatorio EMMEBI - Vigevano).
-
-Una volta prenotata la visita, il dott. Fumero La riceverà presso l'ambulatorio di Sua scelta. Durante la visita il dott. Fumero prenderà visione della documentazione inerente la Sua situazione clinica, valutando eventuali esami diagnostici già eseguiti ed effettuerà una visita medica specialistica completa. Le spiegherà quindi le Sue problematiche e La informerà di tutte le opzioni terapeutiche (mediche, chirurgiche, mininvasive e transcatetere) alle quali potrà essere sottoposto.
-
-Il dott. Fumero La informerà anche sulle possibili complicanze, rischi e benefici attesi dei vari trattamenti e si confronterà con Lei sulle diverse possibilità terapeutiche. In questa sede Le verrà quindi proposto il miglior trattamento possibile con il minor rischio possibile per trattare la Sua patologia e restituirLe il pieno benessere.
-
-Il dott. Fumero La informerà sulle diverse possibilità di ricovero, tempi di attesa e tempi di recupero correlate al trattamento prescelto per la sua guarigione.
-
-Una volta confermata da parte Sua la volontà al ricovero ed al trattamento proposto, il dott. Fumero provvederà personalmente al Suo inserimento in lista di attesa per il ricovero presso Humanitas Rozzano.`,
-  },
   {
     id: 'ssn',
     titolo: 'Ricovero SSN',
     icon: '⊕',
-    intro: 'Ricovero in regime di Servizio Sanitario Nazionale presso Humanitas Rozzano.',
+    intro: `Ricovero in regime di Servizio Sanitario Nazionale presso ${HUMANITAS}.`,
     testo: `Una volta confermata l'indicazione chirurgica Lei sarà messo/a in nota per intervento. La segreteria Le comunicherà la data di ricovero con una decina di giorni d'anticipo. Le segretarie La informeranno via telefono e/o email sulla tipologia di impegnativa mutualistica che dovrà farsi emettere dal Suo/a medico di base.
 
 Le segretarie La informeranno anche dell'eventuale necessità di sospensione o sostituzione di farmaci in previsione del ricovero.
@@ -46,7 +33,7 @@ Il dott. Fumero La rivedrà per una prima visita di controllo postoperatoria a 3
     id: 'solvenza',
     titolo: 'Ricovero in Solvenza',
     icon: '✦',
-    intro: 'Ricovero in regime privato o assicurativo con servizi dedicati e tempi concordati.',
+    intro: `Ricovero in regime privato o assicurativo con servizi dedicati presso ${HUMANITAS}.`,
     testo: `Una volta confermata l'indicazione chirurgica Lei sarà messo/a in nota per intervento. Le segretarie La contatteranno per avere i dati della Sua assicurazione, contatteranno la Sua compagnia assicuratrice, verificheranno le Sue coperture e Le invieranno un preventivo.
 
 Se Lei accetterà il preventivo verrà concordata con Lei la data del ricovero. Le segretarie La informeranno anche dell'eventuale necessità di sospensione o sostituzione di farmaci in previsione del ricovero.
@@ -75,7 +62,7 @@ export default function Ricovero() {
   return (
     <section id="ricovero" className="ricovero section-wrapper">
       <p className="section-label">Informazioni pratiche</p>
-      <h2 className="section-title">Ricovero e visite</h2>
+      <h2 className="section-title">Ricovero</h2>
       <div className="section-divider" />
 
       <div className="ricovero__grid">

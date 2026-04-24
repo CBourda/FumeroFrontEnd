@@ -11,10 +11,24 @@ export default function Cliniche() {
       <p className="section-label">Dove visitare</p>
       <h2 className="section-title">Ambulatori</h2>
       <div className="section-divider" />
-      <p className="cliniche__intro">
-        Per prenotare una visita in presenza contatti direttamente la segreteria
-        della struttura di preferenza. Le televisite si prenotano tramite il modulo dedicato.
-      </p>
+
+      {/* Testo visita ambulatoriale */}
+      <div className="cliniche__visita">
+        <p>
+          Può prenotare una prima visita preoperatoria, second opinion o visita di controllo
+          presso una delle strutture dove il dott. Fumero svolge attività ambulatoriale.
+        </p>
+        <p>
+          Durante la visita il dott. Fumero prenderà visione della documentazione inerente
+          la Sua situazione clinica, valutando eventuali esami diagnostici già eseguiti ed
+          effettuerà una visita medica specialistica completa. Le spiegherà le Sue problematiche
+          e La informerà di tutte le opzioni terapeutiche disponibili.
+        </p>
+        <p>
+          Una volta confermata la volontà al ricovero, il dott. Fumero provvederà personalmente
+          al Suo inserimento in lista di attesa presso Humanitas Rozzano.
+        </p>
+      </div>
 
       {/* Tab buttons */}
       <div className="cliniche__tab-buttons">
@@ -48,8 +62,6 @@ export default function Cliniche() {
             </a>
           </div>
         </div>
-
-        {/* Google Maps embed */}
         <div className="cliniche__map">
           <iframe
             title={c.nome}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './Televisita.css'
 
 const flusso = [
-  { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati e la data preferita.' },
+  { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati.' },
   { num: '2', titolo: 'Ricevi gli estremi di pagamento', desc: 'Ti arriva una email con IBAN, causale e importo (€200).' },
   { num: '3', titolo: 'Effettua il bonifico', desc: 'Esegui il pagamento e invia la ricevuta via email.' },
   { num: '4', titolo: 'Conferma e link Google Meet', desc: 'Il Dott. Fumero conferma e ti invia il link per il collegamento.' },
@@ -91,11 +91,6 @@ export default function Televisita() {
             )}
           </div>
 
-          <div className="televisita__costo">
-            <span className="televisita__costo-label">Costo televisita</span>
-            <span className="televisita__costo-valore">€ 200</span>
-          </div>
-
           <div className="flusso">
             {flusso.map((f, i) => (
               <div key={i} className={`flusso__step ${i === 0 ? 'flusso__step--active' : ''}`}>
@@ -142,6 +137,11 @@ export default function Televisita() {
             </div>
           ) : (
             <form className="televisita__form" onSubmit={handleSubmit}>
+              <div className="televisita__form-info">
+                La televisita si svolge ogni <strong>martedì alle 18:00</strong> via Google Meet.
+                Il costo è di <strong>€ 200</strong>. Le prenotazioni chiudono la domenica precedente a mezzanotte.
+                Le istruzioni per il pagamento Le saranno inviate via email dopo la conferma.
+              </div>
               <div className="form-row">
                 <div className="form-group">
                   <label>Nome e cognome *</label>
@@ -157,10 +157,6 @@ export default function Televisita() {
                 <input name="telefono" type="tel" placeholder="+39 333 123 4567" required value={form.telefono} onChange={handleChange} />
               </div>
               {errore && <div className="televisita__errore">{errore}</div>}
-              <div className="form-note">
-                La televisita si svolge ogni martedì alle 18:00 via Google Meet.
-                Costo: €200. Le istruzioni per il pagamento arriveranno via email.
-              </div>
               <button type="submit" className="btn-submit" disabled={loading}>
                 {loading ? 'Invio in corso...' : 'Richiedi televisita →'}
               </button>
