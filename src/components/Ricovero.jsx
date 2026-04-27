@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import fotoCameraSolvenza from '../assets/foto-camera-solvenza.jpg'
 import './Ricovero.css'
 
 const HUMANITAS = 'IRCCS Humanitas Research Hospital, Via Alessandro Manzoni 56, 20089 Rozzano (MI)'
@@ -8,6 +9,7 @@ const sezioni = [
     id: 'ssn',
     titolo: 'Ricovero SSN',
     icon: '⊕',
+    foto: null,
     intro: `Ricovero in regime di Servizio Sanitario Nazionale presso ${HUMANITAS}.`,
     testo: `Una volta confermata l'indicazione chirurgica Lei sarà messo/a in nota per intervento. La segreteria Le comunicherà la data di ricovero con una decina di giorni d'anticipo. Le segretarie La informeranno via telefono e/o email sulla tipologia di impegnativa mutualistica che dovrà farsi emettere dal Suo/a medico di base.
 
@@ -33,6 +35,7 @@ Il dott. Fumero La rivedrà per una prima visita di controllo postoperatoria a 3
     id: 'solvenza',
     titolo: 'Ricovero in Solvenza',
     icon: '✦',
+    foto: fotoCameraSolvenza,
     intro: `Ricovero in regime privato o assicurativo con servizi dedicati presso ${HUMANITAS}.`,
     testo: `Una volta confermata l'indicazione chirurgica Lei sarà messo/a in nota per intervento. Le segretarie La contatteranno per avere i dati della Sua assicurazione, contatteranno la Sua compagnia assicuratrice, verificheranno le Sue coperture e Le invieranno un preventivo.
 
@@ -75,10 +78,17 @@ export default function Ricovero() {
             tabIndex={0}
             onKeyDown={e => e.key === 'Enter' && setSelected(s)}
           >
-            <div className="ricovero__card-icon">{s.icon}</div>
-            <div className="ricovero__card-title">{s.titolo}</div>
-            <div className="ricovero__card-intro">{s.intro}</div>
-            <span className="ricovero__card-more">Leggi di più →</span>
+            {s.foto && (
+              <div className="ricovero__card-img">
+                <img src={s.foto} alt={s.titolo} />
+              </div>
+            )}
+            <div className="ricovero__card-body">
+              <div className="ricovero__card-icon">{s.icon}</div>
+              <div className="ricovero__card-title">{s.titolo}</div>
+              <div className="ricovero__card-intro">{s.intro}</div>
+              <span className="ricovero__card-more">Leggi di più →</span>
+            </div>
           </div>
         ))}
       </div>

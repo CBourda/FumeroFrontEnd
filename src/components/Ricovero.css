@@ -5,6 +5,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5px;
   background: rgba(201, 168, 76, 0.08);
+  max-width: 900px;
 }
 
 .ricovero__card {
@@ -75,4 +76,35 @@
   .ricovero__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Foto nella card ricovero */
+.ricovero__card:has(.ricovero__card-img) {
+  padding: 0;
+}
+
+.ricovero__card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.ricovero__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: filter 0.4s, transform 0.4s;
+}
+
+.ricovero__card:hover .ricovero__card-img img {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+.ricovero__card-body {
+  padding: 2rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
