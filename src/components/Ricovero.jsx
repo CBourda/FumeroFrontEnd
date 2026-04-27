@@ -100,20 +100,13 @@ export default function Ricovero() {
         >
           <div className="modal ricovero__modal">
             <button className="modal-close" onClick={() => setSelected(null)}>×</button>
-            {selected.foto && (
-              <div className="ricovero__modal-img">
-                <img src={selected.foto} alt={selected.titolo} />
-              </div>
-            )}
-            <div className="ricovero__modal-content">
-              <div className="modal-label">Informazioni pratiche</div>
-              <h3 className="modal-title">{selected.titolo}</h3>
-              <div className="modal-divider" />
-              <div className="modal-body ricovero__modal-body">
-                {selected.testo.split('\n\n').map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+            <div className="modal-label">Informazioni pratiche</div>
+            <h3 className="modal-title">{selected.titolo}</h3>
+            <div className="modal-divider" />
+            <div className="modal-body ricovero__modal-body">
+              {selected.testo.split('\n\n').map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
         </div>

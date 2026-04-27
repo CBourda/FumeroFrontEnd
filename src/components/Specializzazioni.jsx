@@ -188,20 +188,13 @@ export default function Specializzazioni() {
         >
           <div className="modal spec-modal">
             <button className="modal-close" onClick={() => setSelected(null)}>×</button>
-            {selected.foto && (
-              <div className="spec-modal-img">
-                <img src={Array.isArray(selected.foto) ? selected.foto[0] : selected.foto} alt={selected.nome} />
-              </div>
-            )}
-            <div className="spec-modal-content">
-              <div className="modal-label">{selected.label}</div>
-              <h3 className="modal-title">{selected.nome}</h3>
-              <div className="modal-divider" />
-              <div className="modal-body spec-modal-body">
-                {selected.testo.split('\n\n').map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+            <div className="modal-label">{selected.label}</div>
+            <h3 className="modal-title">{selected.nome}</h3>
+            <div className="modal-divider" />
+            <div className="modal-body spec-modal-body">
+              {selected.testo.split('\n\n').map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
         </div>
