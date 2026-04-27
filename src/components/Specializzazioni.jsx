@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import fotoMininvasiva from '../assets/foto-mininvasiva.jpg'
 import fotoMitrale from '../assets/valvola-mitrale-corde-tendinee.jpg'
 import fotoAortica from '../assets/valvola-con-anello-protesico.jpg'
 import fotoTavi from '../assets/foto-emodinamica.jpg'
 import fotoAortica2 from '../assets/foto-valvola-aortica.jpg'
 import fotoAorta from '../assets/foto-aneurisma-aorta.jpg'
+import fotoAortaPost from '../assets/foto-sostituzione-aorta.jpg'
 import './Specializzazioni.css'
 
 const specializzazioni = [
@@ -74,7 +75,8 @@ La TAVI viene eseguita in anestesia locale e sedazione e nella maggior parte dei
     nome: 'Chirurgia aortica',
     desc: "Trattamento degli aneurismi dell'aorta toracica e delle dissezioni aortiche.",
     label: 'Aneurismi e dissezioni',
-    foto: fotoAorta,
+    foto: [fotoAorta, fotoAortaPost],
+    fotoLabel: ['Pre-operatorio: aneurisma aorta ascendente', 'Post-operatorio: sostituzione con protesi vascolare'],
     testo: `Per aneurisma aortico si intende una dilatazione dell'aorta (il vaso arterioso che dal cuore porta il sangue in tutto il corpo). Sono di interesse del cardiochirurgo tutti gli aneurismi dell'aorta ascendente (sia del bulbo aortico sia del tratto tubulare sovracoronarico) e dell'arco aortico fino a livello dell'arteria succlavia.
 
 La progressiva dilatazione dell'aorta ascendente può nel tempo portare ad una rottura dell'aorta stessa (dissezione), evento che comporta la necessità dell'esecuzione di un intervento chirurgico urgente. Per questo motivo è opportuno intervenire con un intervento di sostituzione della parte aneurismatica con una protesi vascolare anche in assenza di sintomi, in modo particolare sopra i 50-55 mm di diametro.
@@ -113,6 +115,33 @@ L'intervento, eseguito in anestesia generale, dura circa 4 ore. A fine intervent
   },
 ]
 
+
+function SpecCardImg({ foto, fotoLabel, nome }) {
+  const [idx, setIdx] = React.useState(0)
+  const isArray = Array.isArray(foto)
+  const src = isArray ? foto[idx] : foto
+  const label = isArray && fotoLabel ? fotoLabel[idx] : null
+
+  return (
+    <div className="spec-card__img">
+      <img src={src} alt={nome} />
+      {isArray && (
+        <div className="spec-card__img-nav">
+          {foto.map((_, i) => (
+            <button
+              key={i}
+              className={`spec-card__img-dot ${i === idx ? 'active' : ''}`}
+              onClick={e => { e.stopPropagation(); setIdx(i) }}
+              title={fotoLabel?.[i]}
+            />
+          ))}
+        </div>
+      )}
+      {label && <div className="spec-card__img-label">{label}</div>}
+    </div>
+  )
+}
+
 export default function Specializzazioni() {
   const [selected, setSelected] = useState(null)
 
@@ -133,9 +162,7 @@ export default function Specializzazioni() {
             onKeyDown={e => e.key === 'Enter' && setSelected(s)}
           >
             {s.foto && (
-              <div className="spec-card__img">
-                <img src={s.foto} alt={s.nome} />
-              </div>
+              <SpecCardImg foto={s.foto} fotoLabel={s.fotoLabel} nome={s.nome} />
             )}
             <div className="spec-card__body">
               <div className="spec-icon">{s.icon}</div>

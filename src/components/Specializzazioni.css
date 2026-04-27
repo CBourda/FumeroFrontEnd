@@ -153,3 +153,47 @@
 .spec-card:has(.spec-card__img) {
   padding: 0;
 }
+
+/* Mini slider foto card */
+.spec-card__img {
+  position: relative;
+}
+
+.spec-card__img-nav {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.spec-card__img-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.spec-card__img-dot.active {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.spec-card__img-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(10,22,40,0.85));
+  color: var(--text-light);
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  padding: 1.2rem 0.8rem 0.5rem;
+  text-align: center;
+}
