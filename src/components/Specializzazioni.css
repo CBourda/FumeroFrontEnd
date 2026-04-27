@@ -124,13 +124,16 @@
 /* Foto nella card */
 .spec-card__img {
   width: 100%;
-  /* rimuovi height: 180px */
+  height: 240px;
   overflow: hidden;
 }
 
 .spec-card__img img {
-  object-fit: contain;
-  background: var(--navy);  /* sfondo navy per i bordi vuoti */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+  transition: filter 0.4s, transform 0.4s;
 }
 
 .spec-card:hover .spec-card__img img {
