@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import fotoCameraSolvenza from '../assets/foto-camera-solvenza.jpg'
+import fotoSSN from '../assets/foto-reparto.jpg'
 import './Ricovero.css'
 
 const HUMANITAS = 'IRCCS Humanitas Research Hospital, Via Alessandro Manzoni 56, 20089 Rozzano (MI)'
@@ -9,7 +10,7 @@ const sezioni = [
     id: 'ssn',
     titolo: 'Ricovero SSN',
     icon: '⊕',
-    foto: null,
+    foto: fotoSSN,
     intro: `Ricovero in regime di Servizio Sanitario Nazionale presso ${HUMANITAS}.`,
     testo: `Una volta confermata l'indicazione chirurgica Lei sarà messo/a in nota per intervento. La segreteria Le comunicherà la data di ricovero con una decina di giorni d'anticipo. Le segretarie La informeranno via telefono e/o email sulla tipologia di impegnativa mutualistica che dovrà farsi emettere dal Suo/a medico di base.
 

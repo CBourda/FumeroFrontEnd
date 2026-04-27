@@ -1,11 +1,11 @@
 import './Hero2.css'
-import fotoReparto from '../assets/foto-reparto.jpg'
+import fotoReparto from '../assets/foto-tavolo-operatorio.jpg'
 
 export default function Hero2() {
   return (
     <section className="hero2">
       <div className="hero2__image-wrap">
-        <img src={fotoReparto} alt="Dott. Fumero in terapia intensiva" />
+        <img src={fotoReparto} alt="Dott. Fumero in sala operatoria" />
         <div className="hero2__overlay" />
       </div>
       <div className="hero2__content">
