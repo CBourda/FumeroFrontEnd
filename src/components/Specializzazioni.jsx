@@ -3,7 +3,8 @@ import fotoMininvasiva from '../assets/foto-mininvasiva.jpg'
 import fotoMitrale from '../assets/valvola-mitrale-corde-tendinee.jpg'
 import fotoAortica from '../assets/valvola-con-anello-protesico.jpg'
 import fotoTavi from '../assets/foto-emodinamica.jpg'
-// import fotoAorta from '../assets/foto-tavolo-operatorio.jpg' // in arrivo
+import fotoAortica2 from '../assets/foto-valvola-aortica.jpg'
+import fotoAorta from '../assets/foto-aneurisma-aorta.jpg'
 import './Specializzazioni.css'
 
 const specializzazioni = [
@@ -43,7 +44,7 @@ In entrambi i casi l'intervento può essere eseguito in sternotomia o con un acc
     nome: 'Valvola aortica',
     desc: 'Chirurgia riparativa e sostitutiva della valvola aortica, inclusa la valvola bicuspide.',
     label: 'Chirurgia riparativa e sostitutiva',
-    foto: fotoAortica,
+    foto: fotoAortica2,
     testo: `La valvola aortica è una valvola unidirezionale che consente il passaggio del sangue dal ventricolo sx all'aorta ascendente (cioè verso tutto il corpo). In caso di stenosi della valvola il sangue trova un ostacolo nel passare dal ventricolo in circolo. Questa situazione porta ad un aumento degli spessori e del volume del ventricolo sx con progressiva perdita della capacità contrattile e della funzione del cuore.
 
 In questi casi a seconda del grado di stenosi, della presenza di calcificazioni e di insufficienza associata è quasi sempre necessario un intervento di sostituzione della valvola con una protesi (biologica o meccanica). In alcuni casi è possibile posizionare una nuova protesi aortica all'interno della valvola aortica nativa stenotica attraverso l'uso di cateteri senza intervento chirurgico (vedi TAVI).
@@ -73,7 +74,7 @@ La TAVI viene eseguita in anestesia locale e sedazione e nella maggior parte dei
     nome: 'Chirurgia aortica',
     desc: "Trattamento degli aneurismi dell'aorta toracica e delle dissezioni aortiche.",
     label: 'Aneurismi e dissezioni',
-    foto: null, // in arrivo
+    foto: fotoAorta,
     testo: `Per aneurisma aortico si intende una dilatazione dell'aorta (il vaso arterioso che dal cuore porta il sangue in tutto il corpo). Sono di interesse del cardiochirurgo tutti gli aneurismi dell'aorta ascendente (sia del bulbo aortico sia del tratto tubulare sovracoronarico) e dell'arco aortico fino a livello dell'arteria succlavia.
 
 La progressiva dilatazione dell'aorta ascendente può nel tempo portare ad una rottura dell'aorta stessa (dissezione), evento che comporta la necessità dell'esecuzione di un intervento chirurgico urgente. Per questo motivo è opportuno intervenire con un intervento di sostituzione della parte aneurismatica con una protesi vascolare anche in assenza di sintomi, in modo particolare sopra i 50-55 mm di diametro.
