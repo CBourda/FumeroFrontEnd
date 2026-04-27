@@ -108,3 +108,23 @@
   flex-direction: column;
   gap: 0.8rem;
 }
+
+/* Foto nel modal ricovero */
+.ricovero__modal-img {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  margin: -3rem -3rem 0 -3rem;
+  width: calc(100% + 6rem);
+}
+
+.ricovero__modal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.ricovero__modal-content {
+  padding-top: 1.5rem;
+}

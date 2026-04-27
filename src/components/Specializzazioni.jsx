@@ -121,21 +121,28 @@ function SpecCardImg({ foto, fotoLabel, nome }) {
   const isArray = Array.isArray(foto)
   const src = isArray ? foto[idx] : foto
   const label = isArray && fotoLabel ? fotoLabel[idx] : null
+  const total = isArray ? foto.length : 1
+
+  const prev = (e) => { e.stopPropagation(); setIdx(i => (i - 1 + total) % total) }
+  const next = (e) => { e.stopPropagation(); setIdx(i => (i + 1) % total) }
 
   return (
     <div className="spec-card__img">
       <img src={src} alt={nome} />
       {isArray && (
-        <div className="spec-card__img-nav">
-          {foto.map((_, i) => (
-            <button
-              key={i}
-              className={`spec-card__img-dot ${i === idx ? 'active' : ''}`}
-              onClick={e => { e.stopPropagation(); setIdx(i) }}
-              title={fotoLabel?.[i]}
-            />
-          ))}
-        </div>
+        <>
+          <button className="spec-card__img-arrow left" onClick={prev}>‹</button>
+          <button className="spec-card__img-arrow right" onClick={next}>›</button>
+          <div className="spec-card__img-nav">
+            {foto.map((_, i) => (
+              <button
+                key={i}
+                className={`spec-card__img-dot ${i === idx ? 'active' : ''}`}
+                onClick={e => { e.stopPropagation(); setIdx(i) }}
+              />
+            ))}
+          </div>
+        </>
       )}
       {label && <div className="spec-card__img-label">{label}</div>}
     </div>
@@ -181,13 +188,20 @@ export default function Specializzazioni() {
         >
           <div className="modal spec-modal">
             <button className="modal-close" onClick={() => setSelected(null)}>×</button>
-            <div className="modal-label">{selected.label}</div>
-            <h3 className="modal-title">{selected.nome}</h3>
-            <div className="modal-divider" />
-            <div className="modal-body spec-modal-body">
-              {selected.testo.split('\n\n').map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+            {selected.foto && (
+              <div className="spec-modal-img">
+                <img src={Array.isArray(selected.foto) ? selected.foto[0] : selected.foto} alt={selected.nome} />
+              </div>
+            )}
+            <div className="spec-modal-content">
+              <div className="modal-label">{selected.label}</div>
+              <h3 className="modal-title">{selected.nome}</h3>
+              <div className="modal-divider" />
+              <div className="modal-body spec-modal-body">
+                {selected.testo.split('\n\n').map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
           </div>
         </div>
