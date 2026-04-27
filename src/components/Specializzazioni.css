@@ -245,3 +245,12 @@
 
 .spec-card__img-arrow.left { left: 0.5rem; }
 .spec-card__img-arrow.right { right: 0.5rem; }
+
+@media (max-width: 768px) {
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .spec-card__img {
+    height: 200px;
+  }
+}
