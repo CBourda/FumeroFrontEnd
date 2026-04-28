@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import fotoMininvasiva from '../assets/foto-mininvasiva.jpg'
 import fotoMitrale from '../assets/valvola-mitrale-corde-tendinee.jpg'
 import fotoAortica from '../assets/valvola-con-anello-protesico.jpg'
+import fotoBypassBW from '../assets/foto-bypass-coronarico-rx.jpeg'
+import fotoBypass from '../assets/foto-bypass-coronarico.jpeg'
 import fotoTavi from '../assets/foto-emodinamica.jpg'
 import fotoAortica2 from '../assets/foto-valvola-aortica.jpg'
 import fotoAorta from '../assets/foto-aneurisma-aorta.jpg'
@@ -106,7 +108,7 @@ In entrambi i casi potrà essere eseguita anche la chiusura/esclusione dell'auri
     nome: 'Malattia coronarica',
     desc: 'Bypass aortocoronarico per il trattamento delle stenosi coronariche.',
     label: 'Bypass aortocoronarico',
-    foto: null,
+    foto: [fotoBypass, fotoBypassBW],
     testo: `In caso di stenosi (restringimenti) delle coronarie, malattia che può determinare l'angina (dolore toracico) o che può portare ad un infarto, se non fosse possibile intervenire con una dilatazione percutanea dei restringimenti (angioplastica) e contemporaneo posizionamento di uno stent, si dovrà eseguire un intervento di Bypass aortocoronarico.
 
 Questo intervento condotto in anestesia generale, in sternotomia e con l'utilizzo della circolazione extracorporea, prevede la creazione di vie alternative (by-pass) per portare il sangue nelle coronarie a valle dei restringimenti. In questi casi vengono utilizzate quali vie alternative le arterie mammarie interne (vasi che si trovano all'interno del torace), le arterie radiali (prelevate dagli arti superiori) e le vene safene (prelevate dalle gambe) a seconda dei casi.
