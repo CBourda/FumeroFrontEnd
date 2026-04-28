@@ -8,6 +8,8 @@ import fotoTavi from '../assets/foto-emodinamica.jpg'
 import fotoAortica2 from '../assets/foto-valvola-aortica.jpg'
 import fotoAorta from '../assets/foto-aneurisma-aorta.jpg'
 import fotoAortaPost from '../assets/foto-sostituzione-aorta.jpg'
+import fotoAortaFinal from '../assets/merged-aorta.jpg'
+import fotoBypassFinal from '../assets/merged-bypass.jpg'
 import './Specializzazioni.css'
 
 const specializzazioni = [
@@ -77,7 +79,7 @@ La TAVI viene eseguita in anestesia locale e sedazione e nella maggior parte dei
     nome: 'Chirurgia aortica',
     desc: "Trattamento degli aneurismi dell'aorta toracica e delle dissezioni aortiche.",
     label: 'Aneurismi e dissezioni',
-    foto: [fotoAorta, fotoAortaPost],
+    foto: fotoAortaFinal,//[fotoAorta, fotoAortaPost],
     fotoLabel: ['Pre-operatorio: aneurisma aorta ascendente', 'Post-operatorio: sostituzione con protesi vascolare'],
     testo: `Per aneurisma aortico si intende una dilatazione dell'aorta (il vaso arterioso che dal cuore porta il sangue in tutto il corpo). Sono di interesse del cardiochirurgo tutti gli aneurismi dell'aorta ascendente (sia del bulbo aortico sia del tratto tubulare sovracoronarico) e dell'arco aortico fino a livello dell'arteria succlavia.
 
@@ -108,7 +110,7 @@ In entrambi i casi potrà essere eseguita anche la chiusura/esclusione dell'auri
     nome: 'Malattia coronarica',
     desc: 'Bypass aortocoronarico per il trattamento delle stenosi coronariche.',
     label: 'Bypass aortocoronarico',
-    foto: [fotoBypass, fotoBypassBW],
+    foto: fotoBypassFinal,//[fotoBypass, fotoBypassBW],
     testo: `In caso di stenosi (restringimenti) delle coronarie, malattia che può determinare l'angina (dolore toracico) o che può portare ad un infarto, se non fosse possibile intervenire con una dilatazione percutanea dei restringimenti (angioplastica) e contemporaneo posizionamento di uno stent, si dovrà eseguire un intervento di Bypass aortocoronarico.
 
 Questo intervento condotto in anestesia generale, in sternotomia e con l'utilizzo della circolazione extracorporea, prevede la creazione di vie alternative (by-pass) per portare il sangue nelle coronarie a valle dei restringimenti. In questi casi vengono utilizzate quali vie alternative le arterie mammarie interne (vasi che si trovano all'interno del torace), le arterie radiali (prelevate dagli arti superiori) e le vene safene (prelevate dalle gambe) a seconda dei casi.
