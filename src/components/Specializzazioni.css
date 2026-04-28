@@ -126,6 +126,7 @@
   width: 100%;
   height: 400px;
   overflow: hidden;
+  align-items: center;
 }
 
 .spec-card__img img {
