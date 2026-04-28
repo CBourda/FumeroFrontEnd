@@ -2,7 +2,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import NavCards from './components/NavCards'
 import Specializzazioni from './components/Specializzazioni'
-import Galleria from './components/Galleria'
 import Carriera from './components/Carriera'
 import Pubblicazioni from './components/Pubblicazioni'
 import Cliniche from './components/Cliniche'
@@ -20,7 +19,6 @@ function App() {
         <Hero />
         <NavCards />
         <Specializzazioni />
-        <Galleria />
         <Carriera />
         <Pubblicazioni />
         <Cliniche />
