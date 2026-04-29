@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import fotoMininvasiva from '../assets/foto-mininvasiva.jpg'
-import fotoMitrale from '../assets/valvola-mitrale-corde-tendinee.jpg'
+import fotoMitrale from '../assets/merged-mitrale.jpg'
 import fotoAortica from '../assets/valvola-con-anello-protesico.jpg'
 import fotoBypassBW from '../assets/foto-bypass-coronarico-rx.jpeg'
 import fotoBypass from '../assets/foto-bypass-coronarico.jpeg'
