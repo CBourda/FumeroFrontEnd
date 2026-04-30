@@ -1,8 +1,8 @@
 import './Carriera.css'
 
 const tappe = [
-  { anno: '2016 — oggi', ruolo: 'Cardiac Surgery Consultant & Adjunct Clinical Professor', luogo: 'Humanitas Research Hospital — Humanitas University, Rozzano (MI)' },
-  { anno: '2004 — 2015', ruolo: 'Cardiac Surgery Consultant', luogo: 'Ospedale San Raffaele, Milano' },
+  { anno: '2016 — oggi', ruolo: 'Capo Sezione e Adjunct Clinical Professor', luogo: 'Humanitas Research Hospital — Humanitas University, Rozzano (MI)' },
+  { anno: '2004 — 2015', ruolo: 'Aiuto — Responsabile Unità Funzionale', luogo: 'Ospedale San Raffaele, Milano' },
   { anno: '2001 — 2003', ruolo: 'Chef de Clinique des Universités', luogo: 'University Hospital Gabriel Montpied, Clermont-Ferrand, Francia' },
   { anno: '1998', ruolo: 'Fellowship in Chirurgia Cardiaca Pediatrica', luogo: 'Great Ormond Street Hospital, Londra' },
   { anno: '1996 — 2001', ruolo: 'Specializzazione in Cardiochirurgia', luogo: 'Centro Cardiologico Monzino — Università degli Studi di Milano' },

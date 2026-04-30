@@ -1,5 +1,5 @@
 import './Hero2.css'
-import fotoReparto from '../assets/foto-corridoio.jpg'
+import fotoReparto from '../assets/foto-reparto.jpg'
 
 export default function Hero2() {
   return (
