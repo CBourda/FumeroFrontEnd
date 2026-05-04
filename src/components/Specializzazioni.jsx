@@ -10,6 +10,7 @@ import fotoAorta from '../assets/foto-aneurisma-aorta.jpg'
 import fotoAortaPost from '../assets/foto-sostituzione-aorta.jpg'
 import fotoAortaFinal from '../assets/merged-aorta.jpg'
 import fotoBypassFinal from '../assets/merged-bypass.jpg'
+import fotoECG from '../assets/foto-ecg-fibrillazione.jpg'
 import './Specializzazioni.css'
 
 const specializzazioni = [
@@ -95,7 +96,7 @@ A fine intervento: 1-2 giorni in terapia intensiva, 5-6 giorni in reparto, circa
     nome: 'Fibrillazione atriale',
     desc: 'Trattamento chirurgico della fibrillazione atriale con ablazione con radiofrequenza bipolare.',
     label: 'Ablazione chirurgica',
-    foto: null,
+    foto: fotoECG,
     testo: `La fibrillazione atriale è una alterazione del ritmo del cuore che può insorgere per diversi motivi. Questa alterazione del ritmo cardiaco può determinare una progressiva dilatazione del cuore che contribuisce al peggioramento della stessa in termini di durata dell'aritmia ed in termini di frequenza cardiaca. La fibrillazione atriale può essere parossistica, persistente e cronica.
 
 Questa aritmia può determinare una sensazione di mancanza di fiato (dispnea), affaticamento (astenia) e l'incapacità a compiere sforzi fisici. Una delle complicanze più temibili è la formazione di trombi nell'atrio sinistro che può determinare in caso di embolia una ischemia cerebrale con conseguenze neurologiche anche gravi quali l'ictus.

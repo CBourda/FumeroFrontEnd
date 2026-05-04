@@ -1,10 +1,20 @@
 import { useState } from 'react'
 import cliniche from '../data/cliniche.json'
+import fotoMilano from '../assets/foto-ambulatorio-milano.jpg'
+import fotoRozzano from '../assets/foto-ambulatorio-rozzano.jpg'
+import fotoVigevano from '../assets/foto-ambulatorio-vigevano.jpg'
 import './Cliniche.css'
+
+const fotoMap = {
+  'foto-ambulatorio-milano.jpg': fotoMilano,
+  'foto-ambulatorio-rozzano.jpg': fotoRozzano,
+  'foto-ambulatorio-vigevano.jpg': fotoVigevano,
+}
 
 export default function Cliniche() {
   const [attiva, setAttiva] = useState(0)
   const c = cliniche[attiva]
+  const foto = c.foto ? fotoMap[c.foto] : null
 
   return (
     <section id="cliniche" className="cliniche section-wrapper">
@@ -12,7 +22,6 @@ export default function Cliniche() {
       <h2 className="section-title">Ambulatori</h2>
       <div className="section-divider" />
 
-      {/* Testo visita ambulatoriale */}
       <div className="cliniche__visita">
         <p>
           Può prenotare una prima visita preoperatoria, second opinion o visita di controllo
@@ -45,6 +54,8 @@ export default function Cliniche() {
 
       {/* Tab content */}
       <div className="cliniche__tab-content">
+
+        {/* Sinistra — info + mini mappa */}
         <div className="cliniche__tab-info">
           <div className="clinica__city">{c.citta}</div>
           <div className="clinica__name">{c.nome}</div>
@@ -53,6 +64,21 @@ export default function Cliniche() {
             <a href={`tel:${c.telefono.replace(/\s/g, '')}`}>{c.telefono}</a>
             {c.email && <a href={`mailto:${c.email}`}>{c.email}</a>}
           </div>
+
+          {/* Mini mappa */}
+          <div className="cliniche__mini-map">
+            <iframe
+              title={c.nome}
+              src={c.mapsEmbed}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
           <div className="clinica__actions">
             <a href={c.schedaMedico} target="_blank" rel="noreferrer" className="btn-outline">
               Scheda medico
@@ -62,18 +88,18 @@ export default function Cliniche() {
             </a>
           </div>
         </div>
-        <div className="cliniche__map">
-          <iframe
-            title={c.nome}
-            src={c.mapsEmbed}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+
+        {/* Destra — foto grande */}
+        <div className="cliniche__foto-grande">
+          {foto ? (
+            <img src={foto} alt={c.nome} />
+          ) : (
+            <div className="cliniche__foto-placeholder">
+              <span>Foto in arrivo</span>
+            </div>
+          )}
         </div>
+
       </div>
     </section>
   )

@@ -131,3 +131,68 @@
   padding-bottom: 2.5rem;
   border-bottom: 1px solid rgba(201, 168, 76, 0.1);
 }
+
+/* Foto ambulatorio */
+.cliniche__foto {
+  height: 320px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.cliniche__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s;
+}
+
+.cliniche__foto:hover img {
+  transform: scale(1.03);
+}
+
+/* Mini mappa sotto i contatti */
+.cliniche__mini-map {
+  height: 160px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  margin: 1rem 0;
+}
+
+.cliniche__mini-map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Foto grande a destra */
+.cliniche__foto-grande {
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.cliniche__foto-grande img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s;
+}
+
+.cliniche__foto-grande:hover img {
+  transform: scale(1.03);
+}
+
+.cliniche__foto-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
