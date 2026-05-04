@@ -3,12 +3,14 @@ import cliniche from '../data/cliniche.json'
 import fotoMilano from '../assets/foto-ambulatorio-milano.jpg'
 import fotoRozzano from '../assets/foto-ambulatorio-rozzano.jpg'
 import fotoVigevano from '../assets/foto-ambulatorio-vigevano.jpg'
+import fotoCagliari from '../assets/foto-ambulatorio-cagliari.jpg'
 import './Cliniche.css'
 
 const fotoMap = {
   'foto-ambulatorio-milano.jpg': fotoMilano,
   'foto-ambulatorio-rozzano.jpg': fotoRozzano,
   'foto-ambulatorio-vigevano.jpg': fotoVigevano,
+  'foto-ambulatorio-cagliari.jpg': fotoCagliari,
 }
 
 export default function Cliniche() {
