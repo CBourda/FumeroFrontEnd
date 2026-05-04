@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Televisita.css'
 
-const apiUrl = import.meta.env.VITE_API_URL || ''
+const apiUrl = 'https://fumerobackandfront-production.up.railway.app'
 
 
 const flusso = [
