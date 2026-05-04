@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import './Televisita.css'
 
+const apiUrl = import.meta.env.VITE_API_URL || ''
+
+
 const flusso = [
   { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati.' },
   { num: '2', titolo: 'Ricevi gli estremi di pagamento', desc: 'Ti arriva una email con IBAN, causale e importo (€200).' },
@@ -17,7 +20,7 @@ export default function Televisita() {
   const [errore, setErrore] = useState(null)
 
   useEffect(() => {
-    fetch('/api/appointment/slot')
+    fetch(`${apiUrl}/api/appointment/slot`)
       .then(res => res.json())
       .then(data => setSlot(data))
       .catch(() => {
@@ -47,7 +50,7 @@ export default function Televisita() {
     setLoading(true)
     setErrore(null)
     try {
-      const res = await fetch('/api/appointment', {
+      const res = await fetch(`${apiUrl}/api/appointment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, clinica: 'Televisita', motivo: 'Richiesta televisita' }),
