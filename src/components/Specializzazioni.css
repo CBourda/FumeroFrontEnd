@@ -132,7 +132,8 @@
 .spec-card__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--navy);
   filter: brightness(0.75);
   transition: filter 0.4s, transform 0.4s;
 }
