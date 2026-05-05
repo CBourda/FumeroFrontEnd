@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Televisita.css'
 
-const apiUrl = 'https://fumerobackandfront-production.up.railway.app'
-
+const apiUrl = 'https://fumerobackend.onrender.com'
 
 const flusso = [
   { num: '1', titolo: 'Compila il modulo', desc: 'Inserisci i tuoi dati.' },
