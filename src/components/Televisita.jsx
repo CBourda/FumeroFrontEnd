@@ -13,7 +13,7 @@ const flusso = [
 export default function Televisita() {
   const [slot, setSlot] = useState(null)
   const [loadingSlot, setLoadingSlot] = useState(true)
-  const [form, setForm] = useState({ nome: '', email: '', telefono: '' })
+  const [form, setForm] = useState({ nome: '', email: '', telefono: '', codiceFiscale: '', indirizzo: '' })
   const [inviato, setInviato] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errore, setErrore] = useState(null)
@@ -129,7 +129,7 @@ export default function Televisita() {
                   <span className="iban-meta">Importo</span>
                   <span className="iban-value">€ 200,00</span>
                   <span className="iban-meta">Causale</span>
-                  <span className="iban-causale">Televisita — [Nome Cognome] — [Data]</span>
+                  <span className="iban-causale">Televisita — {form.nome} — CF: {form.codiceFiscale} — {form.indirizzo} — {slot?.data}</span>
                 </div>
               </div>
               <p className="televisita__successo-nota">
@@ -154,9 +154,19 @@ export default function Televisita() {
                   <input name="email" type="email" placeholder="mario@email.it" required value={form.email} onChange={handleChange} />
                 </div>
               </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Telefono *</label>
+                  <input name="telefono" type="tel" placeholder="+39 333 123 4567" required value={form.telefono} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <label>Codice fiscale *</label>
+                  <input name="codiceFiscale" type="text" placeholder="RSSMRA80A01H501Z" required maxLength={16} value={form.codiceFiscale} onChange={handleChange} />
+                </div>
+              </div>
               <div className="form-group">
-                <label>Telefono *</label>
-                <input name="telefono" type="tel" placeholder="+39 333 123 4567" required value={form.telefono} onChange={handleChange} />
+                <label>Indirizzo *</label>
+                <input name="indirizzo" type="text" placeholder="Via Roma 1, 20100 Milano (MI)" required value={form.indirizzo} onChange={handleChange} />
               </div>
               {errore && <div className="televisita__errore">{errore}</div>}
               <button type="submit" className="btn-submit" disabled={loading}>
