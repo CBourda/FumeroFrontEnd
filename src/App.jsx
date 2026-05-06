@@ -10,6 +10,7 @@ import Televisita from './components/Televisita'
 import Ricovero from './components/Ricovero'
 import Contatti from './components/Contatti'
 import Footer from './components/Footer'
+import CookieBanner from './components/CookieBanner'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Televisita />
         <Ricovero />
         <Contatti />
+        <CookieBanner />
       </main>
       <Footer />
     </>
