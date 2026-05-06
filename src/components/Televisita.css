@@ -232,3 +232,33 @@
 .televisita__form-info strong {
   color: var(--cream);
 }
+
+/* ── Slot selector ── */
+.slot-selector {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.slot-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--text-light);
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.slot-btn:hover {
+  background: rgba(193, 154, 79, 0.15);
+}
+
+.slot-btn--selected {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 600;
+}

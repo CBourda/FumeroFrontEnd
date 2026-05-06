@@ -11,8 +11,9 @@ const flusso = [
 ]
 
 export default function Televisita() {
-  const [slot, setSlot] = useState(null)
+  const [slotInfo, setSlotInfo] = useState(null)
   const [loadingSlot, setLoadingSlot] = useState(true)
+  const [slotSelezionato, setSlotSelezionato] = useState(null)
   const [form, setForm] = useState({ nome: '', email: '', telefono: '', codiceFiscale: '', indirizzo: '' })
   const [inviato, setInviato] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -21,23 +22,13 @@ export default function Televisita() {
   useEffect(() => {
     fetch(`${apiUrl}/api/appointment/slot`)
       .then(res => res.json())
-      .then(data => setSlot(data))
+      .then(data => setSlotInfo(data))
       .catch(() => {
-        const ora = new Date()
-        const giorno = ora.getDay()
-        let giorniAlMartedi = (2 - giorno + 7) % 7
-        if (giorniAlMartedi === 0) giorniAlMartedi = 7
-        const martedi = new Date(ora)
-        martedi.setDate(ora.getDate() + giorniAlMartedi)
-        martedi.setHours(18, 0, 0, 0)
-        const domenica = new Date(martedi)
-        domenica.setDate(martedi.getDate() - 2)
-        domenica.setHours(23, 59, 59, 0)
-        const aperta = ora < domenica
-        const data = martedi.toLocaleDateString('it-IT', {
-          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-        }) + ' alle 18:00'
-        setSlot({ aperta, data })
+        setSlotInfo({
+          aperta: false,
+          slots: [],
+          data: 'martedì alle 18:00'
+        })
       })
       .finally(() => setLoadingSlot(false))
   }, [])
@@ -46,16 +37,25 @@ export default function Televisita() {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    if (!slotSelezionato) {
+      setErrore('Seleziona un orario.')
+      return
+    }
     setLoading(true)
     setErrore(null)
     try {
       const res = await fetch(`${apiUrl}/api/appointment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, clinica: 'Televisita', motivo: 'Richiesta televisita' }),
+        body: JSON.stringify({
+          ...form,
+          slot: slotSelezionato,
+          clinica: 'Televisita',
+          motivo: 'Richiesta televisita'
+        }),
       })
       const data = await res.json()
-      if (!res.ok || data.status === 'closed') {
+      if (!res.ok || data.status === 'closed' || data.status === 'slot_taken' || data.status === 'error') {
         setErrore(data.message || 'Errore nella richiesta. Riprova.')
         return
       }
@@ -66,6 +66,8 @@ export default function Televisita() {
       setLoading(false)
     }
   }
+
+  const slotLabel = slotInfo?.slots?.find(s => s.slot === slotSelezionato)?.label || ''
 
   return (
     <section id="televisita" className="televisita section-wrapper">
@@ -83,10 +85,15 @@ export default function Televisita() {
               <div className="televisita__data-value">Caricamento...</div>
             ) : (
               <>
-                <div className="televisita__data-value">{slot?.data}</div>
-                {!slot?.aperta && (
+                <div className="televisita__data-value">{slotInfo?.data}</div>
+                {!slotInfo?.aperta && (
                   <div className="televisita__data-closed">
                     ⚠ Prenotazioni chiuse — riaprono martedì sera
+                  </div>
+                )}
+                {slotInfo?.aperta && slotInfo?.slots?.length === 0 && (
+                  <div className="televisita__data-closed">
+                    ⚠ Tutti gli slot sono esauriti per questa settimana
                   </div>
                 )}
               </>
@@ -108,17 +115,19 @@ export default function Televisita() {
 
         {/* Form / Successo */}
         <div className="televisita__form-wrap">
-          {!slot?.aperta && !loadingSlot ? (
+          {(!slotInfo?.aperta || slotInfo?.slots?.length === 0) && !loadingSlot ? (
             <div className="televisita__chiusa">
-              <p>Le prenotazioni per la televisita di martedì sono chiuse.</p>
-              <p>Riaprono martedì sera dopo le 18:00.</p>
+              {!slotInfo?.aperta
+                ? <><p>Le prenotazioni per la televisita di martedì sono chiuse.</p><p>Riaprono martedì sera dopo le 18:00.</p></>
+                : <><p>Tutti gli slot disponibili sono stati prenotati.</p><p>Riprova la prossima settimana.</p></>
+              }
             </div>
           ) : inviato ? (
             <div className="televisita__successo">
               <div className="televisita__successo-icon">✓</div>
               <h3>Richiesta inviata</h3>
               <p>Riceverà a breve una email con gli estremi per il bonifico.</p>
-              <p>La televisita è prevista per <strong>{slot?.data}</strong>.</p>
+              <p>La televisita è prevista per <strong>{slotLabel}</strong>.</p>
               <div className="televisita__iban-post">
                 <div className="iban-label">Estremi per il pagamento</div>
                 <div className="iban-row">
@@ -129,7 +138,7 @@ export default function Televisita() {
                   <span className="iban-meta">Importo</span>
                   <span className="iban-value">€ 200,00</span>
                   <span className="iban-meta">Causale</span>
-                  <span className="iban-causale">Televisita — {form.nome} — CF: {form.codiceFiscale} — {form.indirizzo} — {slot?.data}</span>
+                  <span className="iban-causale">Televisita — {form.nome} — CF: {form.codiceFiscale} — {form.indirizzo} — {slotLabel}</span>
                 </div>
               </div>
               <p className="televisita__successo-nota">
@@ -140,10 +149,28 @@ export default function Televisita() {
           ) : (
             <form className="televisita__form" onSubmit={handleSubmit}>
               <div className="televisita__form-info">
-                La televisita si svolge ogni <strong>martedì alle 18:00</strong> via Google Meet.
+                La televisita si svolge ogni <strong>martedì</strong> via Google Meet.
                 Il costo è di <strong>€ 200</strong>. Le prenotazioni chiudono la domenica precedente a mezzanotte.
                 Le istruzioni per il pagamento Le saranno inviate via email dopo la conferma.
               </div>
+
+              {/* Selezione slot */}
+              <div className="form-group">
+                <label>Seleziona l'orario *</label>
+                <div className="slot-selector">
+                  {slotInfo?.slots?.map(s => (
+                    <button
+                      key={s.slot}
+                      type="button"
+                      className={`slot-btn ${slotSelezionato === s.slot ? 'slot-btn--selected' : ''}`}
+                      onClick={() => setSlotSelezionato(s.slot)}
+                    >
+                      {s.ora}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div className="form-row">
                 <div className="form-group">
                   <label>Nome e cognome *</label>
