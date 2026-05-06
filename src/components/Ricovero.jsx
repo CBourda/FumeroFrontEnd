@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import fotoCameraSolvenza from '../assets/foto-camera-solvenza.jpg'
-import fotoSSN from '../assets/foto-corridoio.jpg'
+import fotoCameraSolvenza from '../assets/ricoveri/foto-camera-solvenza.jpg'
+import fotoSSN from '../assets/ricoveri/foto-corridoio.jpg'
 import './Ricovero.css'
 
 const HUMANITAS = 'IRCCS Humanitas Research Hospital, Via Alessandro Manzoni 56, 20089 Rozzano (MI)'

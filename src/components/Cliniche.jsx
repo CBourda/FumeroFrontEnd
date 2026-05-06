@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import cliniche from '../data/cliniche.json'
-import fotoMilano from '../assets/foto-ambulatorio-milano.jpg'
-import fotoRozzano from '../assets/foto-ambulatorio-rozzano.jpg'
-import fotoVigevano from '../assets/foto-ambulatorio-vigevano.jpg'
-import fotoCagliari from '../assets/foto-ambulatorio-cagliari.jpg'
+import fotoMilano from '../assets/ambulatori/foto-ambulatorio-milano.jpg'
+import fotoRozzano from '../assets/ambulatori/foto-ambulatorio-rozzano.jpg'
+import fotoVigevano from '../assets/ambulatori/foto-ambulatorio-vigevano.jpg'
+import fotoCagliari from '../assets/ambulatori/foto-ambulatorio-cagliari.jpg'
 import './Cliniche.css'
 
 const fotoMap = {

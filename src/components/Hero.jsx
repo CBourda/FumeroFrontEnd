@@ -1,4 +1,4 @@
-import fotoDottore from '../assets/foto-dottore.jpg'
+import fotoDottore from '../assets/heroes/foto-dottore.jpg'
 import './Hero.css'
 
 export default function Hero() {
