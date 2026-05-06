@@ -126,7 +126,7 @@ export default function Televisita() {
             <div className="televisita__successo">
               <div className="televisita__successo-icon">✓</div>
               <h3>Richiesta inviata</h3>
-              <p>Riceverà a breve una email con gli estremi per il bonifico.</p>
+              <p>Riceverà a breve una email con gli estremi per il bonifico (qualora non arrivasse, controllare negli spam).</p>
               <p>La televisita è prevista per <strong>{slotLabel}</strong>.</p>
               <div className="televisita__iban-post">
                 <div className="iban-label">Estremi per il pagamento</div>
