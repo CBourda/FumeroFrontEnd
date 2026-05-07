@@ -117,8 +117,14 @@
   <label for="pwd">Password</label>
   <input type="password" id="pwd" placeholder="••••••••••" />
 
-  <button class="btn btn-reset" id="btnReset" onclick="resetSlots()">
-    Reset Slot Orari
+  <button class="btn btn-reset" id="btnReset1" onclick="resetSlot(1)">
+    Reset Slot 18:00
+  </button>
+  <button class="btn btn-reset" id="btnReset2" onclick="resetSlot(2)" style="margin-bottom:12px">
+    Reset Slot 18:30
+  </button>
+  <button class="btn btn-reset" id="btnResetAll" onclick="resetAll()" style="background:rgba(193,154,79,0.3);color:#e8e8e8">
+    Reset Tutti gli Slot
   </button>
 
   <div class="message" id="msg"></div>
@@ -127,50 +133,36 @@
 <script>
   const API = 'https://fumerobackend.onrender.com'
 
-  async function resetSlots() {
-    const pwd = document.getElementById('pwd').value
-    const btn = document.getElementById('btnReset')
-    const msg = document.getElementById('msg')
+async function callReset(endpoint, btnId) {
+  const pwd = document.getElementById('pwd').value
+  const btn = document.getElementById(btnId)
+  const msg = document.getElementById('msg')
+  if (!pwd) { showMsg('Inserisci la password.', 'error'); return }
+  btn.disabled = true
+  msg.className = 'message'
+  try {
+    const res = await fetch(`${API}${endpoint}`, {
+      method: 'POST', headers: { 'X-Admin-Password': pwd }
+    })
+    const data = await res.json()
+    if (res.ok) { showMsg('✓ ' + data.message, 'success'); document.getElementById('pwd').value = '' }
+    else showMsg(data.message || 'Errore.', 'error')
+  } catch { showMsg('Errore di connessione.', 'error') }
+  finally { btn.disabled = false }
+}
 
-    if (!pwd) {
-      showMsg('Inserisci la password.', 'error')
-      return
-    }
+function resetSlot(n) { callReset(`/api/admin/reset-slot${n}`, `btnReset${n}`) }
+function resetAll() { callReset('/api/admin/reset-slots', 'btnResetAll') }
 
-    btn.disabled = true
-    btn.textContent = 'In corso...'
-    msg.className = 'message'
+function showMsg(text, type) {
+  const msg = document.getElementById('msg')
+  msg.textContent = text
+  msg.className = 'message ' + type
+}
 
-    try {
-      const res = await fetch(`${API}/api/admin/reset-slots`, {
-        method: 'POST',
-        headers: { 'X-Admin-Password': pwd }
-      })
-      const data = await res.json()
-
-      if (res.ok) {
-        showMsg('✓ Slot resettati correttamente!', 'success')
-        document.getElementById('pwd').value = ''
-      } else {
-        showMsg(data.message || 'Errore. Verifica la password.', 'error')
-      }
-    } catch {
-      showMsg('Errore di connessione al backend.', 'error')
-    } finally {
-      btn.disabled = false
-      btn.textContent = 'Reset Slot Orari'
-    }
-  }
-
-  function showMsg(text, type) {
-    const msg = document.getElementById('msg')
-    msg.textContent = text
-    msg.className = 'message ' + type
-  }
-
-  document.getElementById('pwd').addEventListener('keydown', e => {
-    if (e.key === 'Enter') resetSlots()
-  })
+document.getElementById('pwd').addEventListener('keydown', e => {
+  if (e.key === 'Enter') resetAll()
+})
 </script>
 
 </body>
