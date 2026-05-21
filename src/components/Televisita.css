@@ -262,3 +262,9 @@
   color: var(--navy);
   font-weight: 600;
 }
+
+.televisita__data-box .slot-btn,
+.form-group > .slot-btn {
+  cursor: default;
+  pointer-events: none;
+}

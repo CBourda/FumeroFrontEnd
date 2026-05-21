@@ -82,7 +82,7 @@ export default function Televisita() {
           <div className="televisita__data-box">
             <div className="televisita__data-label">Prossima disponibilità</div>
             {loadingSlot ? (
-              <div className="televisita__data-value">Caricamento...</div>
+              <div className="televisita__data-value">Recupero dell'agenda in corso, attendere ...</div>
             ) : (
               <>
                 <div className="televisita__data-value">{slotInfo?.data}</div>
@@ -157,7 +157,20 @@ export default function Televisita() {
               {/* Selezione slot */}
               <div className="form-group">
                 <label>Seleziona l'orario *</label>
-                <div className="slot-selector">
+                {loadingSlot ? (
+              <button type="button" className="slot-btn" style={{ width: '100%' }}>
+                Disponibilità in caricamento attendere ...
+              </button>
+            ) : (
+              <>
+                <div className="televisita__data-value">{slotInfo?.data}</div>
+                {!slotInfo?.aperta && (
+                  <button type="button" className="televisita__data-closed" disabled>
+                    ⚠ Prenotazioni chiuse — riaprono martedì sera
+                  </button>
+                )}
+                {slotInfo?.aperta && slotInfo?.slots?.length === 0 && (
+                  <div className="slot-selector">
                   {slotInfo?.slots?.map(s => (
                     <button
                       key={s.slot}
@@ -169,7 +182,10 @@ export default function Televisita() {
                     </button>
                   ))}
                 </div>
-              </div>
+                )}
+              </>
+            )}
+            </div>
 
               <div className="form-row">
                 <div className="form-group">
