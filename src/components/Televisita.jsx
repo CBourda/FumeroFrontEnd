@@ -158,7 +158,7 @@ export default function Televisita() {
               <div className="form-group">
                 <label>Seleziona l'orario *</label>
                 {loadingSlot ? (
-                  <button type="button" className="slot-btn" style={{ width: '100%' }} disabled>
+                  <button type="button" className="slot-btn slot-btn--loading" style={{ width: '100%' }} disabled>
                     Disponibilità in caricamento, attendere...
                   </button>
                 ) : (

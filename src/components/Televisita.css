@@ -268,3 +268,23 @@
   cursor: default;
   pointer-events: none;
 }
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+ 
+.slot-btn--loading {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 168, 76, 0.05) 25%,
+    rgba(201, 168, 76, 0.15) 50%,
+    rgba(201, 168, 76, 0.05) 75%
+  );
+  background-size: 200% auto;
+  animation: shimmer 1.8s linear infinite;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: rgba(201, 168, 76, 0.5);
+  cursor: default;
+  pointer-events: none;
+}
